@@ -1,0 +1,323 @@
+* {
+  margin:0;
+  padding:0;
+  border:0;
+  font-family:calibri, sans-serif;
+  text-transform:uppercase;
+}
+
+body {
+  display:flex;
+  justify-content:center;
+}
+
+img {
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  position:fixed;
+}
+
+section {
+  width:500px;
+  background:#F2F2F2;
+  top:20px;
+  position:absolute;
+  text-align:center;
+  border-radius:10px;
+  padding-bottom:30px;
+}
+
+header h1 {
+  font-size:30px;
+  letter-spacing:6px;
+}
+
+header span {
+  position:relative;
+  left:90px;
+}
+
+.imersao {
+  display:block;
+  margin-top:25px;
+  font-size:30px;
+}
+
+.dev {
+  background:#822F03;
+  border-radius:3px;
+  padding:3px;
+  color:#F2F2F2;
+  padding-right:23px;
+}
+
+.efeito-code {
+  color:#F2F2F2;
+  position:relative;
+  left:-27px;
+  top:-3px;
+  background:none;
+  animation: piscaUnderline 1.3s infinite;
+}
+
+@keyframes piscaUnderline {
+  0% {
+    opacity:0;
+  } 
+  
+  50% {
+    opacity:1;
+  }
+  
+  100% {
+    opacity:0;
+  }
+}
+
+.calculadora {
+  margin:30px auto;
+  width:90%;
+  height:300px;
+}
+
+#aquecimento-resultado {
+  width:270px;
+  margin:auto;
+  height:50px;
+  border-radius:10px;
+  border:2px solid rgba(0,0,0,.7);
+  font-size:40px;
+  text-align:right;
+}
+
+#aquecimento-resultado:focus {
+  outline:0;
+}
+
+.primeira-fileira {
+  margin-top:20px;
+}
+
+.primeira-fileira, .segunda-fileira, .terceira-fileira {
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  width:200px;
+}
+
+button {
+  font-size:40px;
+  background:#A0440E;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:5px;
+  cursor:pointer;
+  border-right:3px solid;
+  border-bottom:3px solid;
+}
+
+.somar {
+  display:none;
+}
+
+.apagar, .repetir, .somar.active, .mais-apagado.active, .virgula.active, .virgula-apagada.active {
+  position:absolute;
+  display:block;
+}
+
+.apagar, .somar.active, .mais-apagado.active,.virgula.active, .virgula-apagada.active {
+  margin-left:65px;
+}
+
+.virgula {
+  display:none;
+}
+
+.virgula-apagada {
+  display:none;
+}
+
+.virgula.active, .virgula-apagada.active {
+  font-size:50px;
+  width:42px;
+  height:50px;
+  text-align:center;
+  margin-top:40px;
+}
+
+.virgula.active p, .virgula-apagada.active p {
+  position:relative;
+  top:-20px;
+}
+
+.virgula-apagada.active {
+  cursor:auto;
+  opacity:.7;
+}
+
+.apagar {
+  width:40px;
+  height:50px;
+  margin-top:-110px;
+}
+
+.apagar img {
+  position:relative;
+  top:2px;
+  right:6px;
+  width:30px;
+  height:30px;
+  transform:scaleX(-1);
+}
+
+.repetir {
+  margin-top:-110px;
+  right:93px;
+  width:40px;
+  height:50px;
+}
+
+.repetir img {
+  width:30px;
+  height:30px;
+  position:relative;
+  top:2px;
+  right:5px;
+}
+
+.somar.active, .mais-apagado.active {
+  margin-top:-35px;
+}
+
+.mais-apagado {
+  display:none;
+}
+
+.mais-apagado.active {
+  cursor:auto;
+  opacity:.7;
+}
+
+.media {
+  width:150px;
+  letter-spacing:3px;
+}
+
+.zero {
+  margin-left:5px;
+}
+
+@media (max-width:700px) {
+  section {
+    width:350px;
+  }
+  
+  .repetir {
+    right:21px;
+  }
+  
+  .apagar, .somar.active, .mais-apagado.active, .virgula.active.active, .virgula-apagada.active.active {
+    margin-left:0px;
+  }
+}
+
+@media (max-width:380px) {
+  section {
+    width:90vw;
+    height:390px;
+  }
+  
+  section h1 {
+    font-size:20px;
+    letter-spacing:4px;
+  }
+  
+  section header span {
+    font-size:12px;
+    left:60px;
+  }
+
+  .imersao {
+    font-size:20px;
+  }
+
+  .dev {
+    padding-right:18px;
+  }
+
+  .efeito-code {
+    left:-20px;
+    top:-3px;
+  }
+
+  #aquecimento-resultado {
+    width:190px;
+    height:40px;
+    font-size:30px;
+  }
+
+  .primeira-fileira {
+    margin-top:20px;
+  }
+
+  .primeira-fileira, .segunda-fileira, .terceira-fileira {
+    margin-bottom:20px;
+    width:160px;
+  }
+
+  button {
+    font-size:30px;
+    padding-left:10px;
+    padding-right:10px;
+    border-right:3px solid;
+    border-bottom:3px solid;
+  }
+  
+  .apagar {
+    height:35px;
+    margin-top:-90px;
+  }
+
+  .repetir, .somar.active, .mais-apagado.active {
+    margin-left:0px;
+  }
+
+  .repetir {
+    margin-top:-90px;
+  }
+  
+  .repetir {
+    width:38px;
+    height:40px;
+  }
+  
+  .repetir img {
+    width:20px;
+    height:20px;
+    top:1px;
+    right:1px;
+  }
+
+  .somar.active, .mais-apagado.active {
+    margin-top:-30px;
+  }
+
+  .media {
+    width:115px;
+    letter-spacing:3px;
+  }
+  
+  .virgula.active, .virgula-apagada.active {
+    font-size:40px;
+    height:38px;
+    width:38px;
+    margin-top:33px;
+  }
+  
+  .virgula.active p, .virgula-apagada.active p {
+    top:-18px;
+  }
+}
