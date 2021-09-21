@@ -99,7 +99,7 @@ header span {
   margin-top:20px;
 }
 
-.primeira-fileira, .segunda-fileira, .terceira-fileira {
+.primeira-fileira, .segunda-fileira, .terceira-fileira, .quarta-fileira {
   margin-left:auto;
   margin-right:auto;
   margin-bottom:20px;
@@ -115,8 +115,12 @@ button {
   padding-right:10px;
   border-radius:5px;
   cursor:pointer;
-  border-right:3px solid;
+  border-right:2px solid;
   border-bottom:3px solid;
+}
+
+.primeira-fileira button:active, .segunda-fileira button:active, .terceira-fileira button:active, .quarta-fileira button:active {
+  border-bottom:1px solid;
 }
 
 .somar {
@@ -128,7 +132,7 @@ button {
   display:block;
 }
 
-.apagar, .somar.active, .mais-apagado.active,.virgula.active, .virgula-apagada.active {
+.apagar, .somar.active, .mais-apagado.active, .virgula.active, .virgula-apagada.active {
   margin-left:65px;
 }
 
@@ -204,10 +208,6 @@ button {
 .media {
   width:150px;
   letter-spacing:3px;
-}
-
-.zero {
-  margin-left:5px;
 }
 
 @media (max-width:700px) {

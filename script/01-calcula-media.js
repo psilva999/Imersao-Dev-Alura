@@ -19,7 +19,6 @@ var clicaPara = {
   
   apagarCaractere: document.querySelector('.apagar'),
   apagarTudo: document.querySelector('.repetir'),
-  
   mostrarResultado: document.querySelector('.media')
 }
 
@@ -33,102 +32,108 @@ var mostraNumeros = document.querySelector('#aquecimento-resultado')
 numero.zero.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 0
 })
 
 numero.um.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 1
 })
 
 numero.dois.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 2
 })
 
 numero.tres.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 3
 })
 
 numero.quatro.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 4
 })
 
 numero.cinco.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 5
 })
 
 numero.seis.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 6
 })
 
 numero.sete.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 7
 })
 
 numero.oito.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 8
 })
 
 numero.nove.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
-  
+
   mostraNumeros.value += 9
 })
 
 clicaPara.somar.addEventListener('click', () => {
   retiraBotaoDeSoma()
   diminuirFonte()
-  
-  mostraNumeros.value += '+'
   botaoDeVirgulaActive()
+
+  mostraNumeros.value += '+'
 })
 
 clicaPara.botarVirgula.addEventListener('click', () => {
-  colocaBotaoDeSoma()
-  diminuirFonte()
-  mostraNumeros.value += ','
-  
-  clicaPara.botarVirgula.classList.remove('active')
-  mostraRetira.virgulaApagada.classList.add('active')
+   colocaBotaoDeSoma()
+   diminuirFonte()
+
+   mostraNumeros.value += ','
+   clicaPara.botarVirgula.classList.remove('active')
+
+   mostraRetira.virgulaApagada.classList.add('active')
+   mostraRetira.virgulaApagada.classList.add('retira-virgula-no-mais')
 })
 
 clicaPara.apagarCaractere.addEventListener('click', () => {
   diminuirFonte()
-  
+
   if (mostraNumeros.value.slice(-1) == ',') {
-    mostraRetira.virgulaApagada.classList.add('ativa-virgula')
+
+     mostraRetira.virgulaApagada.classList.add('ativa-virgula')
+     mostraRetira.virgulaApagada.classList.remove('retira-virgula-no-mais')
+     mostraRetira.virgulaApagada.classList.remove('some-virgula-caso-ja-tenha')
   }
   
   else if (mostraNumeros.value.slice(-1) == '+') {
-    if (clicaPara.botarVirgula.classList.contains('active')) {
+     if (clicaPara.botarVirgula.classList.contains('active') && mostraRetira.virgulaApagada.classList.contains('retira-virgula-no-mais')) {
       
       clicaPara.botarVirgula.classList.remove('active')
       mostraRetira.virgulaApagada.classList.add('active') 
+      mostraRetira.virgulaApagada.classList.remove('retira-virgula-no-mais')
     }
   }
   
@@ -144,7 +149,6 @@ clicaPara.apagarCaractere.addEventListener('click', () => {
   
   if (mostraNumeros.value.length == 0) {
     retiraBotaoDeSoma() 
-    
     botaoDeVirgulaActive()
   }
   
@@ -154,21 +158,21 @@ clicaPara.apagarCaractere.addEventListener('click', () => {
 })
 
 clicaPara.apagarTudo.addEventListener('click', () => {
-  if (clicaPara.somar.classList.contains('active')) {
-    retiraBotaoDeSoma()
-  }
-  
-  if (window.innerWidth > 380) {
-    mostraNumeros.style.fontSize = '40px'
-  }
-  
-  else if (window.innerWidth <= 380) {
-    mostraNumeros.style.fontSize = '30px'
-  }
- 
-  botaoDeVirgulaActive()
-  diminuirFonte()
-  mostraNumeros.value = ''
+   if (clicaPara.somar.classList.contains('active')) {
+      retiraBotaoDeSoma()
+   }
+
+   if (window.innerWidth > 380) {
+      mostraNumeros.style.fontSize = '40px'
+   }
+
+   else if (window.innerWidth <= 380) {
+      mostraNumeros.style.fontSize = '30px'
+   }
+
+   botaoDeVirgulaActive()
+   diminuirFonte()
+   mostraNumeros.value = ''
 })
 
 function colocaBotaoDeSoma() {
@@ -194,11 +198,11 @@ function botaoDeVirgulaActive() {
 }
 
 function diminuirFonte() {
-  if (mostraNumeros.value.length == 12 && window.innerWidth > 380) {
+  if (mostraNumeros.value.length == 13 && window.innerWidth > 380) {
     mostraNumeros.style.fontSize = '40px'
   }
   
-  else if (window.innerWidth > 380 && mostraNumeros.value.length == 13  || mostraNumeros.value.length == 25 && window.innerWidth > 380) {
+  else if (window.innerWidth > 380 && mostraNumeros.value.length == 14  || mostraNumeros.value.length == 25 && window.innerWidth > 380) {
     mostraNumeros.style.fontSize = '20px'
   } 
   
