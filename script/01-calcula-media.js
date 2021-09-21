@@ -195,30 +195,40 @@ function botaoDeVirgulaActive() {
     mostraRetira.virgulaApagada.classList.remove('active')
     clicaPara.botarVirgula.classList.add('active')
   }
-}
+} 
+
+var matrix = document.querySelector(".matrix")
 
 function diminuirFonte() {
-  if (mostraNumeros.value.length == 13 && window.innerWidth > 380) {
-    mostraNumeros.style.fontSize = '40px'
-  }
-  
-  else if (window.innerWidth > 380 && mostraNumeros.value.length == 14  || mostraNumeros.value.length == 25 && window.innerWidth > 380) {
-    mostraNumeros.style.fontSize = '20px'
-  } 
-  
-  else if (mostraNumeros.value.length == 26 && window.innerWidth > 380) {
-    mostraNumeros.style.fontSize = '11px'
-  }
-  
-  else if (window.innerWidth <= 380 && mostraNumeros.value.length == 11) {
-    mostraNumeros.style.fontSize = '30px'
-  }
-  
-  else if (window.innerWidth <= 380 && mostraNumeros.value.length == 12 || window.innerWidth <= 380 && mostraNumeros.value.length == 23) {
-    mostraNumeros.style.fontSize = '15px'
-  }
-  
-  else if (window.innerWidth <= 380 && mostraNumeros.value.length == 24) {
-    mostraNumeros.style.fontSize = '10px'
-  }
+   if (mostraNumeros.value.length == 47) {
+      matrix.classList.add('active')
+   }
+
+   else {
+      matrix.classList.remove('active')
+
+      if (mostraNumeros.value.length <= 12 && window.innerWidth > 380) {
+         mostraNumeros.style.fontSize = '40px'
+      }
+
+      else if (window.innerWidth > 380 && mostraNumeros.value.length >= 13 && mostraNumeros.value.length <= 25) {
+         mostraNumeros.style.fontSize = '20px'
+      }
+
+      else if (mostraNumeros.value.length >= 26 && window.innerWidth > 380) {
+         mostraNumeros.style.fontSize = '11px'
+      }
+
+      else if (window.innerWidth <= 380 && mostraNumeros.value.length <= 11) {
+         mostraNumeros.style.fontSize = '30px'
+      }
+
+      else if (window.innerWidth <= 380 && mostraNumeros.value.length >= 12 && mostraNumeros.value.length <= 23) {
+         mostraNumeros.style.fontSize = '15px'
+      }
+
+      else if (window.innerWidth <= 380 && mostraNumeros.value.length >= 24) {
+         mostraNumeros.style.fontSize = '10px'
+      }
+   }
 }

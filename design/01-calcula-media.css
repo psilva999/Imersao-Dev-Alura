@@ -28,6 +28,11 @@ section {
   padding-bottom:30px;
 }
 
+.matrix.active {
+   background:url('https://capricho.abril.com.br/wp-content/uploads/2016/07/1306.gif') no-repeat center;
+   background-size:cover;
+}
+
 header h1 {
   font-size:30px;
   letter-spacing:6px;
