@@ -35,95 +35,179 @@ numero.zero.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 0
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '0'
+  }
+  
+  else {
+    mostraNumeros.value += '0'
+  }
 })
 
 numero.um.addEventListener('click', () => {
    colocaBotaoDeSoma()
    diminuirFonte()
 
-   mostraNumeros.value += 1
+   if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '1'
+  }
+  
+  else {
+    mostraNumeros.value += '1'
+  }
 })
 
 numero.dois.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 2
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '2'
+  }
+  
+  else {
+    mostraNumeros.value += '2'
+  }
 })
 
 numero.tres.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 3
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '3'
+  }
+  
+  else {
+    mostraNumeros.value += '3'
+  }
 })
 
 numero.quatro.addEventListener('click', () => {
    colocaBotaoDeSoma()
    diminuirFonte()
 
-   mostraNumeros.value += 4
+   if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '4'
+  }
+  
+  else {
+    mostraNumeros.value += '4'
+  }
 })
 
 numero.cinco.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 5
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '5'
+  }
+  
+  else {
+    mostraNumeros.value += '5'
+  }
 })
 
 numero.seis.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 6
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '6'
+  }
+  
+  else {
+    mostraNumeros.value += '6'
+  }
 })
 
 numero.sete.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 7
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '7'
+  }
+  
+  else {
+    mostraNumeros.value += '7'
+  }
 })
 
 numero.oito.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 8
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '8'
+  }
+  
+  else {
+    mostraNumeros.value += '8'
+  }
 })
 
 numero.nove.addEventListener('click', () => {
   colocaBotaoDeSoma()
   diminuirFonte()
 
-  mostraNumeros.value += 9
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '9'
+  }
+  
+  else {
+    mostraNumeros.value += '9'
+  }
 })
 
 clicaPara.somar.addEventListener('click', () => {
    retiraBotaoDeSoma()
    diminuirFonte()
    botaoDeVirgulaActive()
-
-   mostraNumeros.value += '+'
+  
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '+'
+  }
+  
+  else {
+    mostraNumeros.value += '+'
+  }
 })
 
 clicaPara.botarVirgula.addEventListener('click', () => {
    colocaBotaoDeSoma()
    diminuirFonte()
 
-   mostraNumeros.value += '.'
    clicaPara.botarVirgula.classList.remove('active')
-
    mostraRetira.virgulaApagada.classList.add('active')
    mostraRetira.virgulaApagada.classList.add('retira-virgula-no-mais')
+  
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+    mostraNumeros.value = '.'
+  }
+  
+  else {
+    mostraNumeros.value += '.'
+  }
 })
 
 clicaPara.apagarCaractere.addEventListener('click', () => {
   diminuirFonte()
 
-  if (mostraNumeros.value.slice(-1) == ',') {
+  if (mostraNumeros.value.slice(-1) == '.') {
 
      mostraRetira.virgulaApagada.classList.add('ativa-virgula')
      mostraRetira.virgulaApagada.classList.remove('retira-virgula-no-mais')
@@ -157,6 +241,10 @@ clicaPara.apagarCaractere.addEventListener('click', () => {
   else if (mostraNumeros.value.length >= 1) {
     colocaBotaoDeSoma()
   }
+  
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+  }
 })
 
 clicaPara.apagarTudo.addEventListener('click', () => {
@@ -175,27 +263,43 @@ clicaPara.apagarTudo.addEventListener('click', () => {
    botaoDeVirgulaActive()
    diminuirFonte()
    mostraNumeros.value = ''
+  
+  if (clicaPara.mostrarResultado.classList.contains('mostra-resultado')) {
+    retiraResultado()
+  } 
 })
 
-clicaPara.mostrarResultado.addEventListener('click', diminuirFonte)
+function retiraResultado() {
+  clicaPara.mostrarResultado.classList.remove('mostra-resultado')
+}
 
+clicaPara.mostrarResultado.addEventListener('click', diminuirFonte)
 function calculaMedia(modo) {
+   retiraBotaoDeSoma()
+   botaoDeVirgulaActive()
+  
    modo.preventDefault()
 
-   const inputDosNumeros = document.querySelector('#aquecimento-resultado').value
+   const inputDosNumeros = document.querySelector('#aquecimento-resultado').value 
    const valores = inputDosNumeros.split('+')
    const digitos = valores.reduce((a, b) => Number(a, 10) + Number(b, 10))
 
    let totalNumeros = valores.length
    let media = digitos / totalNumeros
-
+  
    if (media.toFixed() >= 3) {
       mostraNumeros.value = media.toFixed(2)
+      clicaPara.mostrarResultado.classList.add('mostra-resultado')
+   }
+  
+  else if (media == 0) {
+     mostraNumeros.value = ''
    }
 
-   else {
-      mostraNumeros.value = media
-   }
+  else {
+    mostraNumeros.value = media
+    clicaPara.mostrarResultado.classList.add('mostra-resultado')
+  }
 }
 
 function colocaBotaoDeSoma() {
@@ -223,18 +327,18 @@ function botaoDeVirgulaActive() {
 var matrix = document.querySelector(".matrix")
 
 function diminuirFonte() {
-   if (mostraNumeros.value.length == 47) {
+   if (mostraNumeros.value.length >= 47 || mostraNumeros.value.length >= 35 && window.innerWidth <= 500) {
       matrix.classList.add('active')
    }
 
    else {
       matrix.classList.remove('active')
 
-      if (mostraNumeros.value.length <= 12 && window.innerWidth > 500) {
+      if (mostraNumeros.value.length <= 13 && window.innerWidth > 500) {
          mostraNumeros.style.fontSize = '40px'
       }
 
-      else if (window.innerWidth > 500 && mostraNumeros.value.length >= 13 && mostraNumeros.value.length <= 25) {
+      else if (window.innerWidth > 500 && mostraNumeros.value.length >= 14 && mostraNumeros.value.length <= 25) {
          mostraNumeros.style.fontSize = '20px'
       }
 
