@@ -50,7 +50,7 @@
                   <option value='peso-argentino'>Peso Argentino ($)</option>
                </optgroup>
             </select>
-            <input type="number" id="moeda-inicial">
+            <input type="number" id="valor-moeda-a-converter">
          </div>
          
          <select id="moeda-final">
@@ -76,11 +76,29 @@
 
          </select>
 
-         <button>CONVERTER</button>
+         <button id="converter-moeda">CONVERTER</button>
+         <div class="resultado-moeda"></div>
       </article>
 
-      <article class="temperaturas"> <h1>Temperatura</h1>
+      <article class="temperaturas"> <h1>Temperaturas</h1>
+         <div>
+            <select id="temperatura-inicial">
+               <option value="celsius">Celsius (&#x2103;)</option>
+               <option value="fahrenheit">Fahrenheit (°F)</option>
+               <option value="kelvin">Kelvin (K)</option>
+            </select>
 
+            <input type='number' id="temperatura-a-converter">
+         </div>
+
+         <select id="temperatura-final">
+            <option value="celsius">Celsius (&#x2103;)</option>
+            <option value="fahrenheit">Fahrenheit (°F)</option>
+            <option value="kelvin">Kelvin (K)</option>
+         </select>
+
+         <button id="converter-temperatura">CONVERTER</button>
+         <div class="resultado-temperatura"></div>
       </article>
 
    </section>
