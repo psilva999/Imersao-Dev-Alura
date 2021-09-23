@@ -15,19 +15,24 @@
 
 <body>
    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29ybGQlMjBtYXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80" id="background-image">
+
+   <div class="imersao">
+      <span class='espaco-cima'>Imersão</span>
+
+      <div class="dev">
+         <span class='espaco-esquerdo'>Dev</span> 
+         <span class="code">_</span>
+      </div>
+   </div>
    
    <section>
       <header> <h1>Moeduratura</h1>
-         <span>Convertendo o necessário</span>
-   
-         <div>Imersão
-            <span class="dev">Dev</span>
-            <span class="code">_</span>
-         </div>
+         <span class='simbolo-moeda'>💲</span>
+         <span class='simbolo-temperatura'>🌡️</span>
       </header>
    
       <article class="moedas"> <h1>Moedas</h1>
-         <div class="escolhe-moeda">
+         <div>
 
             <select id="moeda-inicial">
                <optgroup label='Principais'>
@@ -50,6 +55,7 @@
                   <option value='peso-argentino'>Peso Argentino ($)</option>
                </optgroup>
             </select>
+
             <input type="number" id="valor-moeda-a-converter">
          </div>
          
@@ -74,10 +80,18 @@
                <option value='basic-attention-token'>Basic Attention Token (BAT)</option>
             </optgroup>
 
+            <option value='todas-as-moedas'>Todas as moedas</option>
          </select>
 
          <button id="converter-moeda">CONVERTER</button>
-         <div class="resultado-moeda"></div>
+
+         <div class='.container-resultado-moedas'>
+            <div class="resultado-moeda">O valor do dólar só sobe</div>
+            
+            <button id='limpar-resultado-moeda'>
+               <img src="https://cdn-icons-png.flaticon.com/512/3141/3141684.png">
+            </button>
+         </div>
       </article>
 
       <article class="temperaturas"> <h1>Temperaturas</h1>
@@ -86,6 +100,7 @@
                <option value="celsius">Celsius (&#x2103;)</option>
                <option value="fahrenheit">Fahrenheit (°F)</option>
                <option value="kelvin">Kelvin (K)</option>
+               <option value='todas-as-temperaturas'>Todas as temperaturas</option>
             </select>
 
             <input type='number' id="temperatura-a-converter">
@@ -95,10 +110,18 @@
             <option value="celsius">Celsius (&#x2103;)</option>
             <option value="fahrenheit">Fahrenheit (°F)</option>
             <option value="kelvin">Kelvin (K)</option>
+            <option value='todas-as-temperaturas'>Todas as temperaturas</option>
          </select>
 
          <button id="converter-temperatura">CONVERTER</button>
-         <div class="resultado-temperatura"></div>
+
+         <div class="container-resultado-moedas">
+            <div class="resultado-temperatura">A temperatura só sobe</div>
+
+            <button id='limpar-resultado-temperatura'>
+               <img src="https://cdn-icons-png.flaticon.com/512/3141/3141684.png">
+            </button>
+         </div>
       </article>
 
    </section>
