@@ -26,10 +26,63 @@
          </div>
       </header>
    
-      <article>
-   
+      <article class="moedas"> <h1>Moedas</h1>
+         <div class="escolhe-moeda">
+
+            <select id="moeda-inicial">
+               <optgroup label='Principais'>
+                  <option value='real'>Real (BRL)</option>
+                  <option value='dolar'>Dólar (&dollar;)</option>
+                  <option value='euro'>Euro (&euro;)</option>
+                  <option value='libra'>Libra (&pound;)</option>
+               </optgroup>
+
+               <optgroup label='Criptomoedas'>
+                  <option value='bitcoin'>Bitcoin (&#x20BF;)</option>
+                  <option value='ethereum'>Ethereum (ETH)</option>
+                  <option value='dogecoin'>Dogecoin (DOGE)</option>
+                  <option value='basic-attention-token'>Basic Attention Token (BAT)</option>
+               </optgroup>
+
+               <optgroup label='Variados'>
+                  <option value='yen'>Yen (&yen;)</option>
+                  <option value='yuan'>Yuan (&#20803;)</option>
+                  <option value='peso-argentino'>Peso Argentino ($)</option>
+               </optgroup>
+            </select>
+            <input type="number" id="moeda-inicial">
+         </div>
+         
+         <select id="moeda-final">
+            <optgroup label='Principais'>
+               <option value='real'>Real (BRL)</option>
+               <option value='dolar'>Dólar (&dollar;)</option>
+               <option value='euro'>Euro (&euro;)</option>
+               <option value='libra'>Libra (&pound;)</option>
+            </optgroup>
+         
+            <optgroup label='Criptomoedas'>
+               <option value='bitcoin'>Bitcoin (&#x20BF;)</option>
+               <option value='ethereum'>Ethereum (ETH)</option>
+               <option value='dogecoin'>Dogecoin (DOGE)</option>
+            </optgroup>
+         
+            <optgroup label='Extra'>
+               <option value='peso-argentino'>Peso Argentino ($)</option>
+               <option value='yen'>Yen (&yen;)</option>
+               <option value='yuan'>Yuan (&#20803;)</option>
+               <option value='basic-attention-token'>Basic Attention Token (BAT)</option>
+            </optgroup>
+
+         </select>
+
+         <button>CONVERTER</button>
       </article>
-      
+
+      <article class="temperaturas"> <h1>Temperatura</h1>
+
+      </article>
+
    </section>
 </body>
 
