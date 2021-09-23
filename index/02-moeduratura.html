@@ -33,7 +33,6 @@
    
       <article class="moedas"> <h1>Moedas</h1>
          <div>
-
             <select id="moeda-inicial">
                <optgroup label='Principais'>
                   <option value='real'>Real (BRL)</option>
@@ -78,9 +77,8 @@
                <option value='yen'>Yen (&yen;)</option>
                <option value='yuan'>Yuan (&#20803;)</option>
                <option value='basic-attention-token'>Basic Attention Token (BAT)</option>
+               <option value='todas-as-moedas'>Todas as moedas</option>
             </optgroup>
-
-            <option value='todas-as-moedas'>Todas as moedas</option>
          </select>
 
          <button id="converter-moeda">CONVERTER</button>
@@ -88,7 +86,7 @@
          <div class='.container-resultado-moedas'>
             <div class="resultado-moeda">O valor do dólar só sobe</div>
 
-            <button id='limpar-resultado-moeda'>
+            <button id='limpar-resultado-moeda' class='aparecer-lixeira active'>
                <img src="https://cdn-icons-png.flaticon.com/512/3141/3141684.png">
             </button>
          </div>
@@ -100,7 +98,6 @@
                <option value="celsius">Celsius (&#x2103;)</option>
                <option value="fahrenheit">Fahrenheit (°F)</option>
                <option value="kelvin">Kelvin (K)</option>
-               <option value='todas-as-temperaturas'>Todas as temperaturas</option>
             </select>
 
             <input type='number' id="temperatura-a-converter">
@@ -118,7 +115,7 @@
          <div class="container-resultado-moedas">
             <div class="resultado-temperatura">A temperatura só sobe</div>
 
-            <button id='limpar-resultado-temperatura'>
+            <button id='limpar-resultado-temperatura' class='aparecer-lixeira active'>
                <img src="https://cdn-icons-png.flaticon.com/512/3141/3141684.png">
             </button>
          </div>
