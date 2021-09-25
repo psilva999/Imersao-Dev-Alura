@@ -18,7 +18,25 @@ body {
   height:100vh;
   display:flex;
   justify-content:center;
-  overflow-x: hidden;
+  overflow-x:hidden;
+  background-color:#d98324;
+  background-image:linear-gradient(315deg, #a40606 0%, #d98324 74%);
+  scrollbar-width:thin;
+  scrollbar-color:#7c6a6a;
+}
+
+body::-webkit-scrollbar {
+   width:9px;
+}
+
+body::-webkit-scrollbar-track {
+   background:#7c6a6a;
+}
+
+body::-webkit-scrollbar-thumb {
+   background-color:#AA1609;
+   border-radius:5px;
+   border:3px solid #AA1609;
 }
 
 #background-image {
@@ -29,17 +47,19 @@ body {
   top:0;
   left:0;
   display:block;
+  opacity:.8;
 }
 
 section {
-  background-image:linear-gradient(68.2deg,rgba(255,202,88,1) 0%,rgba(139,73,255,1) 100.2% );
+  background-color:#a40606;
+  background-image:linear-gradient(315deg, #a40606 0%, #d98324 74%);
   position:absolute;
-  top:80px;
+  top:70px;
   width:500px;
+  height:510px;
   color:#F2F2F2;
   padding:10px 70px 0px 70px;
   animation:bordas-moveis 31s infinite;
-  overflow-y:auto;
   display:block;
   justify-content:center;
   text-align:center;
@@ -47,7 +67,8 @@ section {
 }
 
 .imersao {
-   background-image:linear-gradient(68.2deg,rgba(255,202,88,1) 0%,rgba(139,73,255,1) 100.2% );
+   background-color:#a40606;
+   background-image:linear-gradient(315deg, #a40606 0%, #d98324 74%);
    border-radius:3px 3px 6rem 6rem;
    padding:5px 21px 10px 30px;
    position:absolute;
@@ -109,22 +130,26 @@ section header h1 {
    text-shadow:0 0 0 #cac0c0;
 }
 
+.moedas, .temperaturas {
+   display:none;
+}
+
+.moedas.active, .temperaturas.active {
+   display:block;
+   margin-top:30px;
+}
+
 .moedas div, .temperaturas div {
    display:flex;
    justify-content:center;
    margin-top:20px;
 }
 
-.moeda-final, .temperatura-final, #converter-moeda, #converter-temperatura, .container-resultado-moedas, .container-resultado-temperaduras {
+.moeda-final, .temperatura-final, #converter-moeda, #converter-temperatura, .container-resultado-moedas, .container-resultado-temperaturas {
    display:block;
 }
 
-article {
-   display:block;
-   margin-top:30px;
-}
-
-article h1 {
+.moedas.active h1, .temperaturas.active h1 {
    font-family:'Kalam', cursive;
    font-size:19px;
    letter-spacing:1px;
@@ -134,12 +159,12 @@ article h1 {
    border-radius:6rem 0px 6rem 3rem;
 }
 
-.moedas h1 {
+.moedas.active h1 {
    width:100px;
    padding:5px 10px 0px 10px;
 }
 
-.temperaturas h1 {
+.temperaturas.active h1 {
    width:150px;
    padding:5px 10px 1px 10px;
 }
@@ -148,7 +173,7 @@ article h1 {
    box-sizing:border-box;
 }
 
-#moeda-inicial, #temperatura-inicial {
+#moeda-inicial, #temperatura-inicial, #moeda-final, #temperatura-final {
    appearance:none;
    border:none;
    margin:0;
@@ -156,37 +181,154 @@ article h1 {
    font-size: inherit;
    cursor: inherit;
    line-height: inherit;
-   border-radius:2rem 0px 4rem 3rem;
    padding:10px;
    font-size:15px;
    background:none;
-   width:135px;
    font-family:'Basic', sans-serif;
    letter-spacing:2px;
+   border:.5px solid #9C805C;
+   background:#E9C9A0;
+}
+
+.temperaturas.active #seleciona-temperatura {
+   margin-top:19px;
+}
+
+#moeda-inicial, #temperatura-inicial {
+   border-radius:2rem 0rem 0rem 3rem;
+   width:130px;
+}
+
+#moeda-final, #temperatura-final {
+   margin-top:20px;
+   border-radius:0rem 4rem 4rem 4rem;
+}
+
+#moeda-final {
+   width:130px;
+}
+
+#temperatura-final {
+   width:150px;
 }
 
 #moeda-inicial::-ms-expand, #temperatura-inicial::-ms-expand {
    display:none;
 }
 
-#moeda-inicial:focus, #temperatura-inicial:focus {
+#moeda-inicial:focus, #temperatura-inicial:focus, #valor-moeda-a-converter:focus, #temperatura-a-converter:focus, #moeda-final:focus, #temperatura-final:focus {
    outline:none;
 }
 
-#moeda-inicial {
-   background-color:#E9C9A0;
-}
-
-#moeda-inicial optgroup, #temperatura-inicial optgroup {
-   
-}
-
 #valor-moeda-a-converter, #temperatura-a-converter {
+   appearance:none;
+   background:none;
+   font-size:17px;
+   border-radius:0rem 3rem 2rem 0rem;
+   padding-left:10px;
+   width:200px;
+   background-color:#E9C9A0;
+   border:.5px solid #9C805C;
+}
 
+.moedas #ativa-conversor-temperatura, .temperaturas #ativa-conversor-moedas {
+   font-size:36px;
+   width:30px;
+   height:31px;
+   position:absolute;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   padding-top:8px;
+   padding-bottom:4px;
+   border-radius:13px;
+   animation:avanca-volta-etapas 3.5s infinite;
+   cursor:pointer;
+}
+
+.moedas #ativa-conversor-temperatura:hover, .temperaturas #ativa-conversor-moedas:hover {
+   animation:none;
+   opacity:1;
+}
+
+.moedas #ativa-conversor-temperatura {
+   margin-left:370px;
+   margin-top:-3px;
+}
+
+.moedas.active #ativa-conversor-temperatura p, .temperaturas.active #ativa-conversor-moedas p {
+   font-family:'Kalam', cursive;
+   color:#F2F2F2;
+   position:absolute;
+   height:25px;
+   width:25px;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   border-radius:10px;
+}
+
+.moedas #ativa-conversor-temperatura {
+   transform:rotate(-4deg);
+}
+
+.temperaturas #ativa-conversor-moedas {
+   margin-top:-3px;
+   margin-left:-40px;
+   transform:rotate(-183deg);
+}
+
+.moedas #ativa-conversor-moedas p {
+   font-family:'Kalam', cursive;
+   transform:rotate(-4deg);
+   position:absolute;
+}
+
+.moedas .impede-movimento, .temperaturas .impede-movimento {
+   margin:25px auto;
+   height:55px;
+   width:115px;
 }
 
 button {
    cursor:pointer;
+}
+
+#converter-moeda, #converter-temperatura {
+   height:50px;
+   padding:10px;
+   font-family:'Basic', sans-serif;
+   letter-spacing:2px;
+   font-size:13px;
+   background:#E9C9A0;
+   border-radius:5rem 6rem 6rem 1rem;
+   opacity:.8;
+   border:.5px solid #9C805C;
+   border-right:.5px solid rgba(0,0,0,.6);
+   border-bottom:5px solid rgba(0,0,0,.8);
+}
+
+#converter-moeda:hover, #converter-temperatura:hover {
+   opacity:1;
+}
+
+#converter-moeda:active, #converter-temperatura:active {
+   border-bottom:2px solid rgba(0,0,0,.8);
+}
+
+.moedas .container-resultado-moedas {
+   position:relative;
+   margin-top:0px;
+}
+
+.moedas .container-resultado-moedas .resultado-moeda, .container-resultado-temperaturas .resultado-temperatura {
+   background:#E9C9A0;
+   margin-top:0px;
+   padding:30px;
+   text-align:justify;
+   width:400px;
+   color:rgba(0,0,0,.5);
+   border-radius:2rem 3rem 2rem 3rem;
 }
 
 .aparecer-lixeira {
@@ -195,15 +337,23 @@ button {
 
 .aparecer-lixeira.active {
    display:block;
+   margin-top:30px;
+   margin-left:15px;
 }
 
 #limpar-resultado-moeda, #limpar-resultado-temperatura {
    background:none;
+   height:22px;
 }
 
 #limpar-resultado-moeda img, #limpar-resultado-temperatura img {
-   width:20px;
-   height:20px;
+   width:22px;
+   height:22px;
+   opacity:.6;
+}
+
+#limpar-resultado-moeda img:hover, #limpar-resultado-temperatura img:hover {
+   opacity:1;
 }
 
 .data-atualizacao-github {
@@ -215,7 +365,7 @@ button {
 }
 
 .data-atualizacao-github p, img {
-   opacity:.8;
+   opacity:.6;
 }
 
 .data-atualizacao-github p {
@@ -237,18 +387,6 @@ button {
 
 .data-atualizacao-github img:hover {
    opacity:1;
-}
-
-@media (max-width:970px) {
-   section {
-      width:400px;
-   }
-}
-
-@media (max-width:500px) {
-   section {
-      width:90vw;
-   }
 }
 
 @keyframes bordas-moveis {
@@ -307,5 +445,35 @@ button {
 
    100% {
       opacity:0;
+   }
+}
+
+@keyframes avanca-volta-etapas {
+   0% {
+      opacity:.4;
+   }
+
+   17% {
+      opacity:.6;
+   }
+
+   34% {
+      opacity:.8;
+   }
+
+   51% {
+      opacity:1;
+   }
+
+   68% {
+      opacity:.8;
+   }
+
+   85% {
+      opacity:.6;
+   }
+
+   100% {
+      opacity:.4;
    }
 }

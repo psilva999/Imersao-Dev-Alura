@@ -9,6 +9,7 @@
    <link rel="shortcut icon" type="image/x-icon"
       href="https://icon-library.com/images/free-icon-graphic/free-icon-graphic-20.jpg">
    <link rel="stylesheet" href="../design/02-moeduratura.css">
+   <link rel='stylesheet' href='../design/responsividade.css'>
 
    <title>Moeduratura</title>
 </head>
@@ -31,7 +32,7 @@
          <span class='simbolo-temperatura'>🌡️</span>
       </header>
    
-      <article class="moedas"> <h1>Moedas</h1>
+      <article class="moedas active"> <h1>Moedas</h1>
          <div>
             <select id="moeda-inicial">
                <optgroup label='Principais'>
@@ -55,7 +56,7 @@
                </optgroup>
             </select>
 
-            <input type="number" id="valor-moeda-a-converter">
+            <input type="number" id="valor-moeda-a-converter" placeholder='Digite o valor'>
          </div>
          
          <select id="moeda-final">
@@ -81,10 +82,16 @@
             </optgroup>
          </select>
 
-         <button id="converter-moeda">CONVERTER</button>
+         <div id='ativa-conversor-temperatura'>
+            <p>></p>
+         </div>
+         
+         <div class="impede-movimento">
+            <button id="converter-moeda">CONVERTER</button>
+         </div>
 
-         <div class='.container-resultado-moedas'>
-            <div class="resultado-moeda">O valor do dólar só sobe</div>
+         <div class='container-resultado-moedas'>
+            <div class="resultado-moeda">Aconchego do resultado 😊🤪</div>
 
             <button id='limpar-resultado-moeda' class='aparecer-lixeira active'>
                <img src="https://cdn-icons-png.flaticon.com/512/3141/3141684.png">
@@ -93,14 +100,15 @@
       </article>
 
       <article class="temperaturas"> <h1>Temperaturas</h1>
-         <div>
+         <div id="seleciona-temperatura">
+
             <select id="temperatura-inicial">
                <option value="celsius">Celsius (&#x2103;)</option>
                <option value="fahrenheit">Fahrenheit (°F)</option>
                <option value="kelvin">Kelvin (K)</option>
             </select>
 
-            <input type='number' id="temperatura-a-converter">
+            <input type='number' id="temperatura-a-converter" placeholder='Digite o valor'>
          </div>
 
          <select id="temperatura-final">
@@ -110,10 +118,16 @@
             <option value='todas-as-temperaturas'>Todas as temperaturas</option>
          </select>
 
-         <button id="converter-temperatura">CONVERTER</button>
+         <div id='ativa-conversor-moedas'>
+            <p>></p>
+         </div>
 
-         <div class="container-resultado-moedas">
-            <div class="resultado-temperatura">A temperatura só sobe</div>
+         <div class="impede-movimento">
+            <button id="converter-temperatura">CONVERTER</button>
+         </div>
+
+         <div class="container-resultado-temperaturas">
+            <div class="resultado-temperatura">Aconchego do resultado 😊🤪</div>
 
             <button id='limpar-resultado-temperatura' class='aparecer-lixeira active'>
                <img src="https://cdn-icons-png.flaticon.com/512/3141/3141684.png">
