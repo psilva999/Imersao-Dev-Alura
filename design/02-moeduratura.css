@@ -56,7 +56,7 @@ section {
   position:absolute;
   top:70px;
   width:500px;
-  height:510px;
+  
   color:#F2F2F2;
   padding:10px 70px 0px 70px;
   animation:bordas-moveis 31s infinite;
@@ -207,7 +207,7 @@ section header h1 {
 }
 
 #temperatura-final {
-   width:150px;
+   width:170px;
 }
 
 #moeda-inicial::-ms-expand, #temperatura-inicial::-ms-expand {
@@ -323,7 +323,7 @@ button {
    background:#E9C9A0;
    margin-top:0px;
    padding:30px;
-   text-align:justify;
+   text-align:center;
    width:400px;
    color:rgba(0,0,0,.5);
    border-radius:2rem 3rem 2rem 3rem;
@@ -356,7 +356,7 @@ button {
 
 .data-atualizacao-github {
    display:block;
-   margin:30px auto 0px auto;
+   margin:25px auto 0px auto;
    width:150px;
    height:50px;
    justify-content:center;
@@ -473,5 +473,119 @@ button {
 
    100% {
       opacity:.4;
+   }
+}
+
+@media (max-width:970px) {
+
+   .imersao {
+      padding:5px 16px 10px 20px;
+      font-size:16px;
+      letter-spacing:2px;
+   }
+
+   .dev {
+      padding:2px 0px 4px 5px;
+      width:55px;
+      margin-top:2px;
+   }
+
+   .espaco-cima {
+      top:3.5px;
+   }
+
+   .code {
+      top:1px;
+      font-size:16px;
+   }
+}
+
+@media (max-width:600px) {
+   section {
+      width:90vw;
+   }
+
+   section header h1 {
+      font-size:23px;
+   }
+
+   header .simbolo-moeda, .simbolo-temperatura {
+      font-size:13px;
+      margin-top:-15px;
+   }
+
+   header .simbolo-moeda {
+      margin-left:-98px;
+   }
+
+   header .simbolo-temperatura {
+      margin-left:85px;
+   }
+
+   .moedas.active h1, .temperaturas.active h1 {
+      font-size:15px;
+   }
+
+   .moedas.active h1 {
+      width:80px;
+   }
+
+   .temperaturas.active h1 { 
+      width:130px;
+   }
+
+   #moeda-inicial, #temperatura-inicial, #moeda-final, #temperatura-final {
+      font-size:14px;
+   }
+
+   #moeda-inicial, #temperatura-inicial, #moeda-final {
+      width:135px;
+   }
+
+   #temperatura-final {
+      width:135px;
+   }
+
+   #valor-moeda-a-converter, #temperatura-a-converter {
+      width:135px;
+      font-size:16px;
+   }
+
+   .moedas #ativa-conversor-temperatura, .temperaturas #ativa-conversor-moedas {
+      font-size:33px;
+   }
+
+   .moedas.active #ativa-conversor-temperatura {
+      right:11px;
+      margin-top:-1px;
+   }
+
+   .temperaturas.active #ativa-conversor-moedas {
+      left:50px;
+   }
+
+   .moedas .container-resultado-moedas .resultado-moeda, .container-resultado-temperaturas .resultado-temperatura {
+      width:250px;
+      font-size:14px;
+   }
+
+   .aparecer-lixeira.active {
+      margin-left:5px;
+   }
+}
+
+@media (max-width:400px) {
+   section {
+      width:95vw;
+   }
+}
+
+@media (max-width:350px) {
+   section {
+      width:100vw;
+   }
+  
+   header .simbolo-moeda, .simbolo-temperatura {
+      display:none;
    }
 }
