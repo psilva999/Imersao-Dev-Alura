@@ -218,8 +218,20 @@ section header h1 {
    outline:none;
 }
 
-#valor-moeda-a-converter, #temperatura-a-converter {
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
    appearance:none;
+   margin:0;
+}
+
+inpu[type=number] {
+   -moz-appearance:textfield;
+}
+
+.real-final, .celsius-final {
+   display:none;
+}
+
+#valor-moeda-a-converter, #temperatura-a-converter {
    background:none;
    font-size:17px;
    border-radius:0rem 3rem 2rem 0rem;
@@ -329,28 +341,29 @@ button {
    border-radius:2rem 3rem 2rem 3rem;
 }
 
-.aparecer-lixeira {
-   display:block;
+.limpar-resultado-moeda.desativado, .limpar-resultado-temperatura.desativado {
+   display:none;
 }
 
-.aparecer-lixeira.active {
+.limpar-resultado-moeda.active, .limpar-resultado-temperatura.active {
    display:block;
    margin-top:30px;
-   margin-left:15px;
+   margin-left:400px;
+   position:absolute;
 }
 
-#limpar-resultado-moeda, #limpar-resultado-temperatura {
+.limpar-resultado-moeda.active, .limpar-resultado-temperatura.active {
    background:none;
    height:22px;
 }
 
-#limpar-resultado-moeda img, #limpar-resultado-temperatura img {
+.limpar-resultado-moeda.active img, .limpar-resultado-temperatura.active img {
    width:22px;
    height:22px;
    opacity:.6;
 }
 
-#limpar-resultado-moeda img:hover, #limpar-resultado-temperatura img:hover {
+.limpar-resultado-moeda.active img:hover, .limpar-resultado-temperatura.active img:hover {
    opacity:1;
 }
 
@@ -515,7 +528,7 @@ button {
    }
 
    header .simbolo-moeda {
-      margin-left:-98px;
+      margin-left:-100px;
    }
 
    header .simbolo-temperatura {
@@ -569,8 +582,8 @@ button {
       font-size:14px;
    }
 
-   .aparecer-lixeira.active {
-      margin-left:5px;
+   .limpar-resultado-moeda.active, .limpar-resultado-temperatura.active {
+      margin-left:280px;
    }
 }
 
@@ -578,14 +591,18 @@ button {
    section {
       width:95vw;
    }
+
+   .limpar-resultado-moeda.active, .limpar-resultado-temperatura.active {
+      margin-left:250px;
+   }
+
+   header .simbolo-moeda, .simbolo-temperatura {
+      display:none;
+   }
 }
 
 @media (max-width:350px) {
    section {
       width:100vw;
-   }
-  
-   header .simbolo-moeda, .simbolo-temperatura {
-      display:none;
    }
 }
