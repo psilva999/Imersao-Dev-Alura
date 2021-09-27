@@ -226,15 +226,25 @@ mexePara.pegarMoedaInserida.addEventListener('keypress', function(pressionaTecla
    }
 })
 
-mexePara.pegarMoedaInserida.addEventListener('paste', function (desabilitaColar) {
+mexePara.pegarMoedaInserida.addEventListener('paste', function(desabilitaColar) {
    desabilitaColar.preventDefault()
 })
 
-function trocaVirgulaPorPonto() {
-   var soPermitePonto = document.querySelector('#valor-moeda-a-converter').value
+mexePara.pegarTemperaturaInserida.addEventListener('keypress', function(insereTemperatura) {
+   var inputTemperaturaInicial = document.querySelector('#temperatura-a-converter')
 
-   soPermitePonto.replace(",", ".")
-}
+   if (insereTemperatura.key == '/' || insereTemperatura.key == '*' || insereTemperatura.key == '!' || insereTemperatura.key == '%' || insereTemperatura.key == '(' || insereTemperatura.key == ')' || insereTemperatura.key == ':' || insereTemperatura.key == ',' || insereTemperatura.key == '+') {
+      insereTemperatura.preventDefault()
+   }
+   
+   else if (inputTemperaturaInicial.value.length > 0 && insereTemperatura.key == '-') {
+      insereTemperatura.preventDefault()
+   }
+})
+
+mexePara.pegarTemperaturaInserida.addEventListener('paste', function(desabilitaColarNaTemperatura) {
+   desabilitaColarNaTemperatura.preventDefault()
+})
 
 setorPara.ativarConversorTemperaturas.addEventListener('click', () => {
    articleDas.moedas.classList.remove('active')
@@ -263,6 +273,47 @@ mexePara.limparResultadoMoedas.addEventListener('click', () => {
 mexePara.limparResultadoTemperatura.addEventListener('click', () => {
    retiraLixeiraDaTemperatura()
 })
+
+mexePara.pegarTemperaturaInserida.addEventListener('keydown', alterarFonte)
+mexePara.pegarMoedaInserida.addEventListener('keydown', alterarFonte)
+
+function alterarFonte() {
+   var moedaInserida = document.querySelector('#valor-moeda-a-converter')
+   var temperaturaInserida = document.querySelector("#temperatura-a-converter")
+
+   if (moedaInserida.value.length <= 14 && window.innerWidth > 700) {
+      moedaInserida.style.fontSize = '17px'
+   }
+
+   else if (moedaInserida.value.length <= 14 && window.innerWidth <= 700) {
+      moedaInserida.style.fontSize = '16px'
+   }
+
+   else if (moedaInserida.value.length >= 15 && moedaInserida.value.length <= 23) {
+      moedaInserida.style.fontSize = '10px'
+   }
+
+   else if (moedaInserida.value.length >= 24 && moedaInserida.value.length <= 40) {
+      moedaInserida.style.fontSize = '8px'
+   }
+
+   /*Tenho muito que aprender*/
+   if (temperaturaInserida.value.length <= 14 && window.innerWidth > 700) {
+      temperaturaInserida.style.fontSize = '17px'
+   }
+
+   else if (temperaturaInserida.value.length <= 14 && window.innerWidth <= 700) {
+      temperaturaInserida.style.fontSize = '16px'
+   }
+
+   else if (temperaturaInserida.value.length >= 15 && temperaturaInserida.value.length <= 23) {
+      temperaturaInserida.style.fontSize = '10px'
+   }
+
+   else if (temperaturaInserida.value.length >= 24 && temperaturaInserida.value.length <= 40) {
+      temperaturaInserida.style.fontSize = '8px'
+   }
+}
 
 function colocaLixeiraDasMoedas() {
    if (mexePara.limparResultadoMoedas.classList.contains('desativado')) {
