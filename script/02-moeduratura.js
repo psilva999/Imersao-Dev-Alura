@@ -241,6 +241,14 @@ setorPara.converterTemperatura.addEventListener("click", () => {
             colorBlackTemperatura()
             resultadoDa.temperaturaConvertida.innerHTML = `${converteParaKelvin} K`
          }
+
+         else if (temperatura.final == 'todas-as-temperaturas') {
+            var converteParaFah = (((inputTemperatura.value / 5) * 9) + 32).toFixed(2)
+            var converteParaKelvin = (Number(inputTemperatura.value) + 273.15).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah}°F | ${converteParaKelvin} K`
+         }
       }
 
       if (temperatura.inicial == 'fahrenheit') {
@@ -257,6 +265,14 @@ setorPara.converterTemperatura.addEventListener("click", () => {
             colorBlackTemperatura()
             resultadoDa.temperaturaConvertida.innerHTML = `${converteParaKelvin} K`
          }
+
+         else if (temperatura.final == 'todas-as-temperaturas') {
+            var converteParaCelsius = ((inputTemperatura.value - 32) / 1.8).toFixed(2)
+            var converteParaKelvin = ((((inputTemperatura.value - 32) / 1.8) + 273.15)).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius}&#x2103; | ${converteParaKelvin} K`
+         }
       }
 
       if (temperatura.inicial == 'kelvin') {
@@ -265,14 +281,22 @@ setorPara.converterTemperatura.addEventListener("click", () => {
             var converteParaCelsius = (Number(inputTemperatura.value) - 273.15).toFixed(2)
 
             colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius} &#x2103;`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius}&#x2103;`
          }
 
          else if (temperatura.final == 'fahrenheit') {
             var converteParaFah = (((inputTemperatura.value * 9) / 5) - 459.67).toFixed(2)
 
             colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah} °F`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah}°F`
+         }
+
+         else if (temperatura.final == 'todas-as-temperaturas') {
+            var converteParaCelsius = (Number(inputTemperatura.value) - 273.15).toFixed(2)
+            var converteParaFah = (((inputTemperatura.value * 9) / 5) - 459.67).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius}&#x2103; | ${converteParaFah}°F`
          }
       }
 

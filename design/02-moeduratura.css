@@ -341,6 +341,23 @@ button {
    overflow-y:auto;
    color:rgba(0,0,0,.5);
    border-radius:2rem 3rem 2rem 3rem;
+   scrollbar-width:thin;
+   scrollbar-color:#7c6a6a;
+}
+
+.moedas .container-resultado-moedas .resultado-moeda::-webkit-scrollbar, .container-resultado-temperaturas .resultado-temperatura::-webkit-scrollbar {
+   width:7px;
+}
+
+.moedas.active .container-resultado-moedas .resultado-moeda::-webkit-scrollbar-track, .temperaturas.active .container-resultado-temperaturas .resultado-temperatura::-webkit-scrollbar-track {
+   background:#D57B22;
+   border-radius:10px;
+}
+
+.moedas .container-resultado-moedas .resultado-moeda::-webkit-scrollbar-thumb, .container-resultado-temperaturas .resultado-temperatura::-webkit-scrollbar-thumb {
+   background-color:#AA1609;
+   border-radius:5px;
+   border:3px solid #AA1609;
 }
 
 .limpar-resultado-moeda.desativado, .limpar-resultado-temperatura.desativado {
