@@ -212,11 +212,14 @@ setorPara.converterMoeda.addEventListener('click', () => {
 
       colocaLixeiraDasMoedas()
    }
-
-   function colorBlack() { resultadoDa.moedaConvertida.style.color = 'black' }
 })
 
 setorPara.converterTemperatura.addEventListener("click", () => {
+   var temperatura = {
+      inicial: document.querySelector('#temperatura-inicial').value,
+      final: document.querySelector('#temperatura-final').value
+   }
+   
    var inputTemperatura = document.querySelector('#temperatura-a-converter')
 
    if (inputTemperatura.value == '' || inputTemperatura.value == '--' || inputTemperatura.value == '-' || inputTemperatura.value < 0 && inputTemperatura.value > -0.1) {
@@ -224,6 +227,55 @@ setorPara.converterTemperatura.addEventListener("click", () => {
    }
 
    else {
+      if (temperatura.inicial == 'celsius') {
+         if (temperatura.final == 'fahrenheit') {
+            var converteParaFah = (((inputTemperatura.value / 5) * 9) + 32).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah}°F`
+         }
+
+         else if (temperatura.final == 'kelvin') {
+            var converteParaKelvin = (Number(inputTemperatura.value) + 273.15).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaKelvin} K`
+         }
+      }
+
+      if (temperatura.inicial == 'fahrenheit') {
+         if (temperatura.final == 'celsius') {
+            var converteParaCelsius = ((inputTemperatura.value - 32) / 1.8).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius} &#x2103;`
+         }
+
+         else if (temperatura.final == 'kelvin') {
+            var converteParaKelvin = ((((inputTemperatura.value - 32) / 1.8) + 273.15)).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaKelvin} K`
+         }
+      }
+
+      if (temperatura.inicial == 'kelvin') {
+         if (temperatura.final == 'celsius') {
+
+            var converteParaCelsius = (Number(inputTemperatura.value) - 273.15).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius} &#x2103;`
+         }
+
+         else if (temperatura.final == 'fahrenheit') {
+            var converteParaFah = (((inputTemperatura.value * 9) / 5) - 459.67).toFixed(2)
+
+            colorBlackTemperatura()
+            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah} °F`
+         }
+      }
+
       colocaLixeiraDaTemperatura()
    }
 })
@@ -563,3 +615,6 @@ function ativaEthFinal() { altera.ethereumFinal.style.display = 'block' }
 function ativaFahFinal() { altera.fahrenheitFinal.style.display = 'block' }
 function ativaCelsiusFinal() { altera.celsiusFinal.style.display = 'block' }
 function ativaKelvinFinal() { altera.kelvinFinal.style.display = 'block' }
+
+function colorBlack() { resultadoDa.moedaConvertida.style.color = 'black' }
+function colorBlackTemperatura() { resultadoDa.temperaturaConvertida.style.color = 'black' }
