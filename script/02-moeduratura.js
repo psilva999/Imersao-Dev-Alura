@@ -43,12 +43,12 @@ var resultadoDa = {
 }
 
 setorPara.converterMoeda.addEventListener('click', () => {
+   var inputMoeda = document.querySelector('#valor-moeda-a-converter').value
+
    var moeda = {
       inicial: document.querySelector('#moeda-inicial').value,
       final: document.querySelector('#moeda-final').value
    }
-
-   var inputMoeda = document.querySelector('#valor-moeda-a-converter').value
 
    if (inputMoeda == '') { 
       resultadoDa.moedaConvertida.innerHTML = 'Que vazio 😗' 
@@ -60,156 +60,156 @@ setorPara.converterMoeda.addEventListener('click', () => {
 
    else if (inputMoeda > 0) {
       if (moeda.inicial == 'real') {
+         var converte = {
+            praDolar: (inputMoeda / 5.38).toFixed(2),
+            praEuro: (inputMoeda / 6.3).toFixed(2),
+
+            praBtc: (inputMoeda / 229572.71).toFixed(8),
+            praEth: (inputMoeda / 15871.7).toFixed(8)
+         }
 
          if (moeda.final == 'dolar') { 
-            var convertePraDolar = (inputMoeda / 5.38).toFixed(2)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar}`
          }
 
          else if (moeda.final == 'euro') { 
-            var convertePraEuro = (inputMoeda / 6.3).toFixed(2)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${converte.praEuro}`
          }
 
          else if (moeda.final == 'bitcoin') { 
-            var convertePraBtc = (inputMoeda / 229572.71).toFixed(8)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}`
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${converte.praBtc}`
          }
 
          else if (moeda.final == 'ethereum') {
-            var convertePraEth = (inputMoeda / 15871.7).toFixed(8)
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${converte.praEth}`
+         }
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         else if (moeda.final == 'todas-as-moedas') {
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar} | &euro;${converte.praEuro} <br> &#x20BF; ${converte.praBtc} <br> ETH ${converte.praEth}`
          }
       }
 
       else if (moeda.inicial == 'dolar') {
-         if (moeda.final == 'real') { 
-            var convertePraReal = (inputMoeda * 5.38).toFixed(2)
+         var converte = {
+            praReal: (inputMoeda * 5.38).toFixed(2),
+            praEuro: (inputMoeda * 0.855).toFixed(2),
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+            praBtc: (inputMoeda * 0.000024).toFixed(6),
+            praEth: (inputMoeda * 0.000341).toFixed(6)
+         }
+
+         if (moeda.final == 'real') { 
+            resultadoDa.moedaConvertida.innerHTML = `R$${converte.praReal}`
          }
 
          else if (moeda.final == 'euro') { 
-            var convertePraEuro = (inputMoeda * 0.855).toFixed(2)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${converte.praEuro}`
          }
 
          else if (moeda.final == 'bitcoin') { 
-            var convertePraBtc = (inputMoeda * 0.000024).toFixed(6)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}`
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${converte.praBtc}`
          }
 
          else if (moeda.final == 'ethereum') { 
-            var convertePraEth = (inputMoeda * 0.000341).toFixed(6)
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${converte.praEth}`
+         }
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         else if (moeda.final == 'todas-as-moedas') {
+            resultadoDa.moedaConvertida.innerHTML = `R$${converte.praReal} | &euro;${converte.praEuro} <br> &#x20BF; ${converte.praBtc} <br> ETH ${converte.praEth}`
          }
       }
 
       else if (moeda.inicial == 'euro') {
-         if (moeda.final == 'real') { 
-            var convertePraReal = (inputMoeda * 6.3).toFixed(2)
+         var converte = {
+            praReal: (inputMoeda * 6.3).toFixed(2),
+            praDolar: (inputMoeda * 1.1693).toFixed(2),
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+            praBtc: (inputMoeda * 0.00002761).toFixed(8),
+            praEth: (inputMoeda * 0.00040008).toFixed(8)
+         }
+
+         if (moeda.final == 'real') { 
+            resultadoDa.moedaConvertida.innerHTML = `R$${converte.praReal}`
          }
 
          else if (moeda.final == 'dolar') { 
-            var convertePraDolar = (inputMoeda * 1.1693).toFixed(2)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar}`
          }
 
          else if (moeda.final == 'bitcoin') {
-            var convertePraBtc = (inputMoeda * 0.00002761).toFixed(8)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}` 
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${converte.praBtc}` 
          }
 
          else if (moeda.final == 'ethereum') { 
-            var convertePraEth = (inputMoeda * 0.00040008).toFixed(8)
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${converte.praEth}`
+         }
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         else if (moeda.final == 'todas-as-moedas') {
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar} | R$${converte.praReal} <br> &#x20BF; ${converte.praBtc} <br> ETH ${converte.praEth}`
          }
       }
 
       else if (moeda.inicial == 'bitcoin') {
-         if (moeda.final == 'dolar') { 
-            var convertePraDolar = (inputMoeda * 42250.44).toFixed(6)
+         var converte = {
+            praDolar: (inputMoeda * 42250.44).toFixed(6),
+            praEuro: (inputMoeda * 36279.28).toFixed(6),
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+            praReal: (inputMoeda * 228655.16).toFixed(6),
+            praEth: (inputMoeda * 14.44).toFixed(4)
+         }
+
+         if (moeda.final == 'dolar') { 
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar}`
          }
 
          else if (moeda.final == 'euro') { 
-            var convertePraEuro = (inputMoeda * 36279.28).toFixed(6)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${converte.praEuro}`
          }
 
          else if (moeda.final == 'real') { 
-            var convertePraReal = (inputMoeda * 228655.16).toFixed(6)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+            resultadoDa.moedaConvertida.innerHTML = `R$${converte.praReal}`
          }
 
          else if (moeda.final == 'ethereum') { 
-            var convertePraEth = (inputMoeda * 14.44).toFixed(4)
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${converte.praEth}`
+         }
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         else if (moeda.final == 'todas-as-moedas') {
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar} <br> &euro;${converte.praEuro} <br> R$${converte.praReal} <br> ETH ${converte.praEth}`
          }
       }
 
       else if (moeda.inicial == 'ethereum') {
-         if (moeda.final == 'dolar') { 
-            var convertePraDolar = (inputMoeda * 2931.57).toFixed(4)
+         var converte = {
+            praReal: (inputMoeda * 15795).toFixed(4),
+            praDolar: (inputMoeda * 2931.57).toFixed(4),
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+            praEuro: (inputMoeda * 2522.86).toFixed(4),
+            praBtc: (inputMoeda * 0.069399).toFixed(6)
+         }
+
+         if (moeda.final == 'dolar') { 
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar}`
          }
 
          else if (moeda.final == 'euro') { 
-            var convertePraEuro = (inputMoeda * 2522.86).toFixed(4)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${converte.praEuro}`
          }
 
          else if (moeda.final == 'bitcoin') { 
-            var convertePraBtc = (inputMoeda * 0.069399).toFixed(6)
-
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}`
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${converte.praBtc}`
          }
 
          else if (moeda.final == 'real') { 
-            var convertePraReal = (inputMoeda * 15795).toFixed(4)
+            resultadoDa.moedaConvertida.innerHTML = `R$${converte.praReal}`
+         }
 
-            colorBlack()
-            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+         else if (moeda.final == 'todas-as-moedas') {
+            resultadoDa.moedaConvertida.innerHTML = `$${converte.praDolar} <br> &euro;${converte.praEuro} <br> R$${converte.praReal} <br> &#x20BF; ${converte.praBtc}`
          }
       }
 
+      colorBlack()
       colocaLixeiraDasMoedas()
    }
 })
@@ -228,78 +228,63 @@ setorPara.converterTemperatura.addEventListener("click", () => {
 
    else {
       if (temperatura.inicial == 'celsius') {
-         if (temperatura.final == 'fahrenheit') {
-            var converteParaFah = (((inputTemperatura.value / 5) * 9) + 32).toFixed(2)
+         var converte = {
+            paraFah: (((inputTemperatura.value / 5) * 9) + 32).toFixed(2),
+            paraKelvin: (Number(inputTemperatura.value) + 273.15).toFixed(2)
+         }
 
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah}°F`
+         if (temperatura.final == 'fahrenheit') {
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraFah}°F`
          }
 
          else if (temperatura.final == 'kelvin') {
-            var converteParaKelvin = (Number(inputTemperatura.value) + 273.15).toFixed(2)
-
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaKelvin} K`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraKelvin} K`
          }
 
          else if (temperatura.final == 'todas-as-temperaturas') {
-            var converteParaFah = (((inputTemperatura.value / 5) * 9) + 32).toFixed(2)
-            var converteParaKelvin = (Number(inputTemperatura.value) + 273.15).toFixed(2)
-
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah}°F | ${converteParaKelvin} K`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraFah}°F | ${converte.paraKelvin} K`
          }
       }
 
       if (temperatura.inicial == 'fahrenheit') {
-         if (temperatura.final == 'celsius') {
-            var converteParaCelsius = ((inputTemperatura.value - 32) / 1.8).toFixed(2)
+         var converte = {
+            paraCelsius: ((inputTemperatura.value - 32) / 1.8).toFixed(2),
+            paraKelvin: ((((inputTemperatura.value - 32) / 1.8) + 273.15)).toFixed(2)
+         }
 
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius} &#x2103;`
+         if (temperatura.final == 'celsius') {
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraCelsius} &#x2103;`
          }
 
          else if (temperatura.final == 'kelvin') {
-            var converteParaKelvin = ((((inputTemperatura.value - 32) / 1.8) + 273.15)).toFixed(2)
-
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaKelvin} K`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraKelvin} K`
          }
 
          else if (temperatura.final == 'todas-as-temperaturas') {
-            var converteParaCelsius = ((inputTemperatura.value - 32) / 1.8).toFixed(2)
-            var converteParaKelvin = ((((inputTemperatura.value - 32) / 1.8) + 273.15)).toFixed(2)
-
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius}&#x2103; | ${converteParaKelvin} K`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraCelsius}&#x2103; | ${converte.paraKelvin} K`
          }
       }
 
       if (temperatura.inicial == 'kelvin') {
+         var converte = {
+            paraCelsius: (Number(inputTemperatura.value) - 273.15).toFixed(2),
+            paraFah: (((inputTemperatura.value * 9) / 5) - 459.67).toFixed(2)
+         }
+
          if (temperatura.final == 'celsius') {
-
-            var converteParaCelsius = (Number(inputTemperatura.value) - 273.15).toFixed(2)
-
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius}&#x2103;`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraCelsius}&#x2103;`
          }
 
          else if (temperatura.final == 'fahrenheit') {
-            var converteParaFah = (((inputTemperatura.value * 9) / 5) - 459.67).toFixed(2)
-
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaFah}°F`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraFah}°F`
          }
 
          else if (temperatura.final == 'todas-as-temperaturas') {
-            var converteParaCelsius = (Number(inputTemperatura.value) - 273.15).toFixed(2)
-            var converteParaFah = (((inputTemperatura.value * 9) / 5) - 459.67).toFixed(2)
-
-            colorBlackTemperatura()
-            resultadoDa.temperaturaConvertida.innerHTML = `${converteParaCelsius}&#x2103; | ${converteParaFah}°F`
+            resultadoDa.temperaturaConvertida.innerHTML = `${converte.paraCelsius}&#x2103; | ${converte.paraFah}°F`
          }
       }
 
+      colorBlackTemperatura()
       colocaLixeiraDaTemperatura()
    }
 })
