@@ -37,63 +37,231 @@ var altera = {
    todasAsTemperaturas: document.querySelector('.todas-as-temperaturas')
 }
 
-mexePara.escolherTemperaturaInicial.addEventListener("change", () => {
-   var temperaturaInicial = document.querySelector('#temperatura-inicial').value
-   var temperaturaFinal = document.querySelector('#temperatura-final')
+var resultadoDa = {
+   moedaConvertida: document.querySelector(".resultado-moeda"),
+   temperaturaConvertida: document.querySelector(".resultado-temperatura")
+}
 
-   if (temperaturaInicial == 'celsius') {
-      ativaFahFinal()
-      ativaKelvinFinal()
-      altera.celsiusFinal.style.display = 'none'
-
-      if (temperaturaFinal.value != 'celsius') {
-         selectFahFinal()
-         selectKelvinFinal()
-         selectTodasAsTemperaturas()
-      }
-
-      else {
-         temperaturaFinal.value = 'fahrenheit'
-      }
+setorPara.converterMoeda.addEventListener('click', () => {
+   var moeda = {
+      inicial: document.querySelector('#moeda-inicial').value,
+      final: document.querySelector('#moeda-final').value
    }
 
-   else if (temperaturaInicial == 'fahrenheit') {
-      ativaCelsiusFinal()
-      ativaKelvinFinal()
-      altera.fahrenheitFinal.style.display = 'none'
+   var inputMoeda = document.querySelector('#valor-moeda-a-converter').value
 
-      if (temperaturaFinal.value != 'fahrenheit') {
-         selectCelsiusFinal()
-         selectKelvinFinal()
-         selectTodasAsTemperaturas()
-      }
-
-      else {
-         temperaturaFinal.value = 'celsius'
-      }
+   if (inputMoeda == '') { 
+      resultadoDa.moedaConvertida.innerHTML = 'Que vazio 😗' 
    }
 
-   else if (temperaturaInicial == 'kelvin') {
-      ativaFahFinal()
-      ativaCelsiusFinal()
-      altera.kelvinFinal.style.display = 'none'
-
-      if (temperaturaFinal.value != 'kelvin') {
-         selectCelsiusFinal()
-         selectFahFinal()
-         selectTodasAsTemperaturas()
-      }
-
-      else {
-         temperaturaFinal.value = 'celsius'
-      }
+   else if (inputMoeda <= 0) { 
+      resultadoDa.moedaConvertida.innerHTML = 'Não quero converter com zero 😑' 
    }
 
-   function selectCelsiusFinal() { if (temperaturaFinal.value == 'celsius') { temperaturaFinal.value = 'celsius' }}
-   function selectFahFinal() { if (temperaturaFinal.value == 'fahrenheit') { temperaturaFinal.value = 'fahrenheit' }}
+   else if (inputMoeda > 0) {
+      if (moeda.inicial == 'real') {
 
-   function selectKelvinFinal() { if (temperaturaFinal.value == 'kelvin') { temperaturaFinal.value = 'kelvin' }}
-   function selectTodasAsTemperaturas() { if (temperaturaFinal.value == 'todas-as-temperaturas') { temperaturaFinal.value = 'todas-as-temperaturas' }}
+         if (moeda.final == 'dolar') { 
+            var convertePraDolar = (inputMoeda / 5.38).toFixed(2)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+         }
+
+         else if (moeda.final == 'euro') { 
+            var convertePraEuro = (inputMoeda / 6.3).toFixed(2)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+         }
+
+         else if (moeda.final == 'bitcoin') { 
+            var convertePraBtc = (inputMoeda / 229572.71).toFixed(8)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}`
+         }
+
+         else if (moeda.final == 'ethereum') {
+            var convertePraEth = (inputMoeda / 15871.7).toFixed(8)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         }
+      }
+
+      else if (moeda.inicial == 'dolar') {
+         if (moeda.final == 'real') { 
+            var convertePraReal = (inputMoeda * 5.38).toFixed(2)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+         }
+
+         else if (moeda.final == 'euro') { 
+            var convertePraEuro = (inputMoeda * 0.855).toFixed(2)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+         }
+
+         else if (moeda.final == 'bitcoin') { 
+            var convertePraBtc = (inputMoeda * 0.000024).toFixed(6)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}`
+         }
+
+         else if (moeda.final == 'ethereum') { 
+            var convertePraEth = (inputMoeda * 0.000341).toFixed(6)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         }
+      }
+
+      else if (moeda.inicial == 'euro') {
+         if (moeda.final == 'real') { 
+            var convertePraReal = (inputMoeda * 6.3).toFixed(2)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+         }
+
+         else if (moeda.final == 'dolar') { 
+            var convertePraDolar = (inputMoeda * 1.1693).toFixed(2)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+         }
+
+         else if (moeda.final == 'bitcoin') {
+            var convertePraBtc = (inputMoeda * 0.00002761).toFixed(8)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}` 
+         }
+
+         else if (moeda.final == 'ethereum') { 
+            var convertePraEth = (inputMoeda * 0.00040008).toFixed(8)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         }
+      }
+
+      else if (moeda.inicial == 'bitcoin') {
+         if (moeda.final == 'dolar') { 
+            var convertePraDolar = (inputMoeda * 42250.44).toFixed(6)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+         }
+
+         else if (moeda.final == 'euro') { 
+            var convertePraEuro = (inputMoeda * 36279.28).toFixed(6)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+         }
+
+         else if (moeda.final == 'real') { 
+            var convertePraReal = (inputMoeda * 228655.16).toFixed(6)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+         }
+
+         else if (moeda.final == 'ethereum') { 
+            var convertePraEth = (inputMoeda * 14.44).toFixed(4)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `ETH ${convertePraEth}`
+         }
+      }
+
+      else if (moeda.inicial == 'ethereum') {
+         if (moeda.final == 'dolar') { 
+            var convertePraDolar = (inputMoeda * 2931.57).toFixed(4)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `$${convertePraDolar}`
+         }
+
+         else if (moeda.final == 'euro') { 
+            var convertePraEuro = (inputMoeda * 2522.86).toFixed(4)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&euro;${convertePraEuro}`
+         }
+
+         else if (moeda.final == 'bitcoin') { 
+            var convertePraBtc = (inputMoeda * 0.069399).toFixed(6)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `&#x20BF; ${convertePraBtc}`
+         }
+
+         else if (moeda.final == 'real') { 
+            var convertePraReal = (inputMoeda * 15795).toFixed(4)
+
+            colorBlack()
+            resultadoDa.moedaConvertida.innerHTML = `R$${convertePraReal}`
+         }
+      }
+
+      colocaLixeiraDasMoedas()
+   }
+
+   function colorBlack() { resultadoDa.moedaConvertida.style.color = 'black' }
+})
+
+setorPara.converterTemperatura.addEventListener("click", () => {
+   var inputTemperatura = document.querySelector('#temperatura-a-converter')
+
+   if (inputTemperatura.value == '' || inputTemperatura.value == '--' || inputTemperatura.value == '-' || inputTemperatura.value < 0 && inputTemperatura.value > -0.1) {
+      resultadoDa.temperaturaConvertida.innerHTML = 'Melhor tentarmos com outro valor 🙄'
+   }
+
+   else {
+      colocaLixeiraDaTemperatura()
+   }
+})
+
+mexePara.limparResultadoMoedas.addEventListener('click', () => {
+   var inputMoeda = document.querySelector('#valor-moeda-a-converter')
+
+   retiraLixeiraDasMoedas()
+   inputMoeda.value = ''
+
+   resultadoDa.moedaConvertida.style.color = 'rgba(0,0,0,.5)'
+   resultadoDa.moedaConvertida.innerHTML = 'Aconchego do resultado 😊'
+
+   if (window.innerWidth > 700 && inputMoeda.value.length == 0) {
+      inputMoeda.style.fontSize = '17px'
+   }
+
+   else if (window.innerWidth <= 700 && inputMoeda.value.length == 0) {
+      inputMoeda.style.fontSize = '16px'
+   }
+})
+
+mexePara.limparResultadoTemperatura.addEventListener('click', () => {
+   var inputTemperatura = document.querySelector('#temperatura-a-converter')
+
+   retiraLixeiraDaTemperatura()
+   inputTemperatura.value = ''
+   
+   resultadoDa.temperaturaConvertida.style.color = 'rgba(0,0,0,.5)'
+   resultadoDa.temperaturaConvertida.innerHTML = 'Aconchego do resultado 😊'
+
+   if (window.innerWidth > 700 && inputTemperatura.value.length == 0) {
+      inputTemperatura.style.fontSize = '17px'
+   }
+
+   else if (window.innerWidth <= 700 && inputTemperatura.value.length == 0) {
+      inputTemperatura.style.fontSize = '16px'
+   }
 })
 
 mexePara.escolherMoedaInicial.addEventListener('change', () => {
@@ -220,6 +388,65 @@ mexePara.escolherMoedaInicial.addEventListener('change', () => {
    function ethereumValorFinal() {  if (moedaFinal.value == 'ethereum' ) { moedaFinal.value = 'ethereum' } }
 })
 
+mexePara.escolherTemperaturaInicial.addEventListener("change", () => {
+   var temperaturaInicial = document.querySelector('#temperatura-inicial').value
+   var temperaturaFinal = document.querySelector('#temperatura-final')
+
+   if (temperaturaInicial == 'celsius') {
+      ativaFahFinal()
+      ativaKelvinFinal()
+      altera.celsiusFinal.style.display = 'none'
+
+      if (temperaturaFinal.value != 'celsius') {
+         selectFahFinal()
+         selectKelvinFinal()
+         selectTodasAsTemperaturas()
+      }
+
+      else {
+         temperaturaFinal.value = 'fahrenheit'
+      }
+   }
+
+   else if (temperaturaInicial == 'fahrenheit') {
+      ativaCelsiusFinal()
+      ativaKelvinFinal()
+      altera.fahrenheitFinal.style.display = 'none'
+
+      if (temperaturaFinal.value != 'fahrenheit') {
+         selectCelsiusFinal()
+         selectKelvinFinal()
+         selectTodasAsTemperaturas()
+      }
+
+      else {
+         temperaturaFinal.value = 'celsius'
+      }
+   }
+
+   else if (temperaturaInicial == 'kelvin') {
+      ativaFahFinal()
+      ativaCelsiusFinal()
+      altera.kelvinFinal.style.display = 'none'
+
+      if (temperaturaFinal.value != 'kelvin') {
+         selectCelsiusFinal()
+         selectFahFinal()
+         selectTodasAsTemperaturas()
+      }
+
+      else {
+         temperaturaFinal.value = 'celsius'
+      }
+   }
+
+   function selectCelsiusFinal() { if (temperaturaFinal.value == 'celsius') { temperaturaFinal.value = 'celsius' } }
+   function selectFahFinal() { if (temperaturaFinal.value == 'fahrenheit') { temperaturaFinal.value = 'fahrenheit' } }
+
+   function selectKelvinFinal() { if (temperaturaFinal.value == 'kelvin') { temperaturaFinal.value = 'kelvin' } }
+   function selectTodasAsTemperaturas() { if (temperaturaFinal.value == 'todas-as-temperaturas') { temperaturaFinal.value = 'todas-as-temperaturas' } }
+})
+
 mexePara.pegarMoedaInserida.addEventListener('keypress', function(pressionaTecla) {
    if (pressionaTecla.key == '-' || pressionaTecla.key == '+' || pressionaTecla.key == '/' || pressionaTecla.key == '*' || pressionaTecla.key == '!' || pressionaTecla.key == '%' || pressionaTecla.key == '(' || pressionaTecla.key == ')' || pressionaTecla.key == ':' || pressionaTecla.key == ',') {
       pressionaTecla.preventDefault()
@@ -258,22 +485,6 @@ setorPara.ativarConversorMoedas.addEventListener('click', () => {
    articleDas.moedas.classList.add("active")
 })
 
-setorPara.converterMoeda.addEventListener('click', () => {
-   colocaLixeiraDasMoedas()
-})
-
-setorPara.converterTemperatura.addEventListener("click", () => {
-   colocaLixeiraDaTemperatura()
-})
-
-mexePara.limparResultadoMoedas.addEventListener('click', () => {
-   retiraLixeiraDasMoedas()
-})
-
-mexePara.limparResultadoTemperatura.addEventListener('click', () => {
-   retiraLixeiraDaTemperatura()
-})
-
 mexePara.pegarTemperaturaInserida.addEventListener('keydown', alterarFonte)
 mexePara.pegarMoedaInserida.addEventListener('keydown', alterarFonte)
 
@@ -281,11 +492,11 @@ function alterarFonte() {
    var moedaInserida = document.querySelector('#valor-moeda-a-converter')
    var temperaturaInserida = document.querySelector("#temperatura-a-converter")
 
-   if (moedaInserida.value.length <= 14 && window.innerWidth > 700) {
+   if (moedaInserida.value.length <= 14 && window.innerWidth > 700 || moedaInserida.value.length == 0) {
       moedaInserida.style.fontSize = '17px'
    }
 
-   else if (moedaInserida.value.length <= 14 && window.innerWidth <= 700) {
+   else if (moedaInserida.value.length <= 14 && window.innerWidth <= 700 || moedaInserida.value.length == 0) {
       moedaInserida.style.fontSize = '16px'
    }
 

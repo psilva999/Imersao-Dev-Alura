@@ -337,6 +337,8 @@ button {
    padding:30px;
    text-align:center;
    width:400px;
+   height:80px;
+   overflow-y:auto;
    color:rgba(0,0,0,.5);
    border-radius:2rem 3rem 2rem 3rem;
 }
