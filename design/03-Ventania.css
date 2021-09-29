@@ -1,0 +1,185 @@
+@charset 'UTF-8';
+@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+* {
+   margin:0;
+   padding:0;
+   border:0;
+   box-sizing:border-box;
+}
+
+body {
+   width:100vw;
+   height:100vh;
+   font-family:'Basic', sans-serif;;
+   display:flex;
+   justify-content:center;
+   background-color:#f5d020;
+   background-image:linear-gradient(315deg, #f5d020 0%, #f53803 84%);
+}
+
+section {
+   width:100vw;
+   display:flex;
+   justify-content:center;
+}
+
+section header {
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   height:60px;
+   width:100vw;
+   background:#F53803;
+   position:absolute;
+   padding:5px;
+}
+
+header h1, .autores.active li {
+   opacity:.7;
+}
+
+header h1 {
+   font-size:40px;
+   letter-spacing:8px;
+   font-family:'Kalam', cursive;
+}
+
+#menu {
+   position:absolute;
+   top:0px;
+   right:0px;
+}
+
+.autores {
+   display:none;
+}
+
+.autores.active {
+   position:absolute;
+   top:0px;
+   right:.5px;
+   list-style:none;
+   text-decoration:none;
+   display:block;
+   overflow-y:auto;
+   padding:10px;
+   height:100vh;
+   width:23vw;
+   background-color:#f5d020;
+   background-image:linear-gradient(315deg, #f5d020 0%, #f53803 84%);
+}
+
+.autores.active li {
+   display:block;
+   margin-top:85px;
+   font-size:18px;
+   letter-spacing:2px;
+   cursor:pointer;
+}
+
+.autores.active .drummond {
+   width:170px;
+}
+
+.autores.active .github {
+   display:block;
+   margin:auto;
+   width:25px;
+   height:25px;
+   margin-top:30px;
+   border-radius:10px;
+   opacity:.7;
+}
+
+.autores.active .github:hover {
+   opacity:1;
+}
+
+.autores.active li:hover {
+   opacity:1;
+}
+
+.cobre-tela {
+   display:none;
+}
+
+.cobre-tela.active {
+   display:block;
+   width:100vw;
+   height:100vh;
+   position:absolute;
+   background:rgba(0,0,0,.5);
+}
+
+section .clarice-livros {
+   display:flex;
+}
+
+section .clarice-livros img {
+   border-radius:5rem 2rem 5rem 2rem;
+   width:200px;
+   height:400px;
+   margin-left:10px;
+}
+
+#imersao-dev {
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   position:fixed;
+   bottom:0;
+   font-size:23px;
+   padding:10px;
+   border-radius:2rem 2rem 0rem 0rem;
+   color:#F2F2F2;
+   background-color:#f5d020;
+   background-image:linear-gradient(315deg, #f5d020 0%, #f53803 24%);
+}
+
+.imersao, .dev, .code {
+   opacity:.9;
+}
+
+.imersao, .dev {
+   position:relative;
+   letter-spacing:2px;
+}
+
+.imersao {
+   left:-2px;
+}
+
+.dev {
+   left:2px;
+   top:1px;
+   background:#962405;
+   border-radius:1rem 2rem 2rem 0rem;
+   padding:0px 5px 0px 5px;
+   width:73px;
+}
+
+.code {
+   position:absolute;
+   display:block;
+   width:18px;
+   margin-top:-30px;
+   margin-left:43px;
+   animation:pisca-code 1.3s infinite;
+}
+
+@keyframes pisca-code {
+   0% {
+      opacity:0;
+   }
+
+   50% {
+      opacity:1;
+   }
+
+   100% {
+      opacity:0;
+   }
+}
+
