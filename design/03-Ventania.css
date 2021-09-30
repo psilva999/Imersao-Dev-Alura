@@ -27,7 +27,7 @@ body {
    top:0;
    left:0;
    object-fit:cover;
-   filter:blur(10px);
+   animation:fundo-borrado 3.2s forwards;
    opacity:.8;
 }
 
@@ -128,14 +128,22 @@ header h1 {
    background:rgba(0,0,0,.5);
 }
 
-section article {
-   margin-top:100px;
-   overflow-x:hidden;
-   background:#47180B;
-   padding-top:20px;
+section .titulo {
+   position:absolute;
+   margin:90px;
+   color:#F2F2F2;
+   letter-spacing:4px;
+   background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Clarice_Lispector_%28cropped%29.jpg/200px-Clarice_Lispector_%28cropped%29.jpg') center;
+   padding:5px 13px 8px 15px;
+   font-size:15px;
+   text-align:center;
+   border-radius:1rem 0rem 1rem 0rem;
 }
 
-section .clarice-livros {
+section article {
+   margin-top:140px;
+   overflow-x:hidden;  
+   padding-top:20px;
    display:flex;
 }
 
@@ -144,7 +152,6 @@ section article figure {
    margin-left:30px;
    cursor:pointer;
    height:410px;
-   font-size:17px;
    letter-spacing:3px;
    text-align:center;
    color:#F2F2F2;
@@ -158,16 +165,19 @@ section article img {
    width:200px;
    height:350px;
    border-radius:3rem 1rem 5rem 1rem;
+   transition:.7s;
 }
 
 article img:hover {
    border-radius:0rem 0rem 6rem 6rem;
+   transform:scale(1.1);
+   transition:.7s;
 }
 
 article figcaption {
-   
-   padding:5px 10px 5px 10px;
-   border-radius:0rem 6rem 6rem 6rem;
+   font-size:15px;
+   position:relative;
+   top:15px;
 }
 
 #imersao-dev {
@@ -225,6 +235,52 @@ article figcaption {
 
    100% {
       opacity:0;
+   }
+}
+
+@keyframes fundo-borrado {
+   0% {
+      filter:blur(0px);
+   }
+
+   10% {
+      filter:blur(1px);
+   }
+
+   20% {
+      filter:blur(2px);
+   }
+
+   30% {
+      filter:blur(3px);
+   }
+
+   40% {
+      filter:blur(4px);
+   }
+
+   50% {
+      filter:blur(5px);
+   }
+
+   60% {
+      filter:blur(6px);
+   }
+
+   70% {
+      filter:blur(7px);
+   }
+
+   80% {
+      filter:blur(8px);
+   }
+
+   90% {
+      filter:blur(9px);
+   }
+
+   100% {
+      filter:blur(10px);
    }
 }
 
