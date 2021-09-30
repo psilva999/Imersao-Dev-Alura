@@ -16,24 +16,39 @@ body {
    display:flex;
    justify-content:center;
    background-color:#f5d020;
-   background-image:linear-gradient(315deg, #f5d020 0%, #f53803 84%);
+   background:rgba(0,0,0,1);
+   overflow-x:hidden;
+}
+
+#background-image {
+   position:fixed;
+   width:100vw;
+   height:100vh;
+   top:0;
+   left:0;
+   object-fit:cover;
+   filter:blur(10px);
+   opacity:.8;
 }
 
 section {
    width:100vw;
    display:flex;
    justify-content:center;
+   position:absolute;
 }
 
 section header {
    display:flex;
    justify-content:space-between;
    align-items:center;
-   height:60px;
    width:100vw;
-   background:#F53803;
    position:absolute;
-   padding:5px;
+   padding:3px 3px 1px 3px;
+   background:rgb(172, 120, 23);
+   border-radius:0rem 0rem 1rem 1rem;
+   color:#F2F2F2;
+   box-shadow:0px 0px 3px solid rgba(0,0,0,.8);
 }
 
 header h1, .autores.active li {
@@ -41,7 +56,7 @@ header h1, .autores.active li {
 }
 
 header h1 {
-   font-size:40px;
+   font-size:35px;
    letter-spacing:8px;
    font-family:'Kalam', cursive;
 }
@@ -113,15 +128,44 @@ header h1 {
    background:rgba(0,0,0,.5);
 }
 
+section article {
+   margin-top:100px;
+   overflow-x:hidden;
+}
+
 section .clarice-livros {
    display:flex;
 }
 
-section .clarice-livros img {
-   border-radius:5rem 2rem 5rem 2rem;
+section article figure {
+   display:block;
+   margin-left:30px;
+   cursor:pointer;
+   height:410px;
+   font-size:17px;
+   letter-spacing:3px;
+   text-align:center;
+   color:#F2F2F2;
+}
+
+.estrela-clarice {
+   margin-left:0px;
+}
+
+section article img {
    width:200px;
-   height:400px;
-   margin-left:10px;
+   height:350px;
+   border-radius:3rem 1rem 5rem 1rem;
+}
+
+article img:hover {
+   border-radius:0rem 0rem 6rem 6rem;
+}
+
+article figcaption {
+   background:#B4755A;
+   padding:5px 10px 5px 10px;
+   border-radius:0rem 6rem 6rem 6rem;
 }
 
 #imersao-dev {
@@ -134,8 +178,6 @@ section .clarice-livros img {
    padding:10px;
    border-radius:2rem 2rem 0rem 0rem;
    color:#F2F2F2;
-   background-color:#f5d020;
-   background-image:linear-gradient(315deg, #f5d020 0%, #f53803 24%);
 }
 
 .imersao, .dev, .code {
@@ -164,9 +206,10 @@ section .clarice-livros img {
    position:absolute;
    display:block;
    width:18px;
-   margin-top:-30px;
+   font-size:19px;
+   margin-top:-24px;
    margin-left:43px;
-   animation:pisca-code 1.3s infinite;
+   animation:pisca-code 1.5s infinite;
 }
 
 @keyframes pisca-code {
