@@ -15,6 +15,17 @@ body {
    width:100vw;
    height:100vh;
    background:black;
+   overflow-x:hidden;
+}
+
+#background-image {
+   width:100vw;
+   height:100vh;
+   top:0;
+   left:0;
+   object-fit:cover;
+   position:fixed;
+   filter:blur(10px);
 }
 
 section, header, nav, .lista-projetos.active {
@@ -37,8 +48,8 @@ section {
    align-items:center;
 }
 
-header, .lista-projetos.active {
-   background:#154785;
+header, .lista-projetos.active, #conteudo .projetos div h1 {
+   background:black;
 }
 
 header {
@@ -53,7 +64,7 @@ header {
    height:50px;
 }
 
-header h1 {
+header h1, #conteudo .conquistas {
    font-family:'Stick No Bills', sans-serif;
 }
 
@@ -106,7 +117,7 @@ header .lista-projetos {
 }
 
 .fecha-menu-por-fora {
-   position:absolute;
+   position:fixed;
    width:100vw;
    height:100vh;
    background:rgba(0,0,0,.6);
@@ -119,15 +130,15 @@ header nav .lista-projetos.active {
    list-style:none;
    display:block;
    width:30vw;
-   height:100vh;
+   height:70vh;
    right:0px;
-   top:0px;
+   top:5px;
    overflow-y:auto;
    background:#F2F2F2;
    padding:20px;
    font-family: 'Fira Sans', sans-serif;
    font-size:18px;
-   
+   border-radius:0rem 0rem 0rem 3rem;
 }
 
 .lista-projetos.active #fecha-menu-burguer {
@@ -182,7 +193,7 @@ header nav .lista-projetos.active {
 
 header .lista-projetos.active li {
    display:block;
-   margin-top:90px;
+   margin-top:70px;
 }
 
 header li:hover {
@@ -196,6 +207,139 @@ header .lista-projetos.active a {
 
 header .lista-projetos.active a:hover {
    opacity:1;
+}
+
+#conteudo {
+   display:flex;
+   justify-content:space-between;
+   width:700px;
+   height:430px;
+}
+
+#conteudo .conquistas {
+   display:block;
+   letter-spacing:3px;
+   width:107px;
+   font-size:13px;
+   color: #f2f2f2;;
+   margin-top:30px;
+}
+
+#conteudo .conquistas img {
+   width:60px;
+   height:60px;
+   margin-top:30px;
+   margin-left:23px;
+}
+
+#conteudo .conquistas #min-margin {
+   margin-top:10px;
+}
+
+#conteudo .projetos {
+   overflow-y:auto;
+   padding-right:20px;
+   scrollbar-width:thin;
+   scrollbar-color:#F2F2F2;
+}
+
+#conteudo .projetos::-webkit-scrollbar {
+   width:9px;
+}
+
+#conteudo .projetos::-webkit-scrollbar-track {
+   background:black;
+}
+
+#conteudo .projetos::-webkit-scrollbar-thumb {
+   background-color:#F2F2F2;
+   border-radius:5px;
+   border:3px solid #F2F2F2;
+}
+
+#conteudo .projetos div {
+   margin-top:30px;
+   text-align:center;
+}
+
+#conteudo .projetos div h1 {
+   font-family: 'Fira Sans', sans-serif;
+   padding:5px;
+   font-size:20px;
+   letter-spacing:3px;
+   width:170px;
+   margin:auto auto 20px auto;
+   color:#F2F2F2;
+   border-radius:3rem 3rem 0rem 3rem;
+}
+
+#conteudo .projetos .calcula-media {
+   margin-top:0px;
+}
+
+#conteudo .projetos .ventania {
+   margin-bottom:23px;
+}
+
+#conteudo .projetos img {
+   width:500px;
+   height:350px;
+   border-radius:6rem 0rem 6rem 3rem;
+   transition:.7s;
+}
+
+#conteudo .projetos img:hover {
+   transform:scale(.9);
+   transition:.7s;
+   border-radius:1rem;
+}
+
+#conteudo .projetos .creditos .sobre {
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   margin-top:60px;
+}
+
+#conteudo .projetos .creditos .sobre img {
+   width:150px;
+   height:150px;
+   border-radius:4rem 1rem 1rem 4rem;
+}
+
+#conteudo .projetos .creditos .sobre img:hover {
+   transform:scale(1);
+}
+
+#conteudo .projetos .creditos .sobre h1 {
+   position:relative;
+   width:250px;
+   border-radius:0;
+   padding:0;
+   background:none;
+   color:black;
+   top:-80px;
+   right:20px;
+}
+
+#conteudo .creditos .redes {
+   width:180px;
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   margin:-50px auto auto 210px;
+}
+
+#conteudo .creditos .redes img {
+   width:30px;
+   height:30px;
+   border-radius:0rem;
+   display:block;
+}
+
+#conteudo .creditos .redes img:hover {
+   transform:scale(1.2);
+   border-radius:0rem;
 }
 
 @keyframes coding {
