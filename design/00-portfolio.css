@@ -1,0 +1,187 @@
+@charset 'UTF-8';
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;1,400&display=swap');
+
+* {
+   margin:0;
+   border:0;
+   padding:0;
+   box-sizing:border-box;
+}
+
+body {
+   display:flex;
+   justify-content:center;
+   width:100vw;
+   height:100vh;
+   background:black;
+}
+
+section, header, nav, .lista-projetos.active {
+   position:absolute;
+}
+
+section, header {
+   width:100vw;
+}
+
+section a, header a {
+   text-decoration:none;
+}
+
+header, .lista-projetos.active {
+   background:#154785;
+}
+
+header {
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   padding:5px;
+   font-size:21px;
+   color:#F2F2F2;
+   letter-spacing:3px;
+}
+
+header h1 {
+   font-family:'Stick No Bills', sans-serif;
+}
+
+header h1 span {
+   position:absolute;
+   font-size:42px;
+   margin-top:-2px;
+   margin-left:7px;
+   animation:coding 1.6s infinite;
+}
+
+header nav {
+   right:0px;
+   width:50px;
+   height:50px;
+   border-radius:10px;
+   box-sizing:border-box;
+   display:flex;
+}
+
+header #menu-burguer {
+   border:none;
+   background:none;
+   cursor:pointer;
+   opacity:.9;
+}
+
+header #menu-burguer .burguer {
+   border-top:3px solid;
+   border-radius:2px;
+   display:block;
+   width:30px;
+   position:relative;
+   left:10px;
+   color:#F2F2F2;
+}
+
+header #menu-burguer .burguer::after, .burguer::before {
+   position:relative;
+   border-radius:2px;
+   content:'';
+   display:block;
+   height:3px;
+   margin-top:9px;
+   background:currentColor;
+}
+
+header .lista-projetos {
+   display:none;
+}
+
+header nav .lista-projetos.active {
+   list-style:none;
+   display:block;
+   width:30vw;
+   height:100vh;
+   right:0px;
+   top:-6px;
+   overflow-y:auto;
+   background:#F2F2F2;
+   padding:20px;
+   font-family: 'Fira Sans', sans-serif;
+}
+
+.lista-projetos.active #fecha-menu-burguer {
+   opacity:.7;
+   position:absolute;
+   top:9px;
+   margin-left:0px;
+   width:30px;
+   height:30px;
+   border-radius:5px;
+   display:flex;
+   cursor:pointer;
+}
+
+.lista-projetos.active #x-burguer {
+   border-top-color:transparent;
+}
+
+.lista-projetos.active #x-burguer::before {
+   transform:rotate(131deg);
+   background:black;
+   width:23px;
+   height:2px;
+   top:-1px;
+   right:6px;
+}
+
+.lista-projetos.active #x-burguer::after {
+   transform:rotate(-131deg);
+   background:black;
+   width:23px;
+   height:2px;
+   top:-12px;
+   right:6px;
+}
+
+.lista-projetos.active #fecha-menu {
+   opacity:1;
+}
+
+.lista-projetos.active .yourself {
+   letter-spacing:0px;
+   font-size:14px;
+   text-align:center;
+   opacity:1;
+   color:black;
+}
+
+header .lista-projetos.active li {
+   display:block;
+   margin-top:90px;
+}
+
+header li:hover {
+   opacity:1;
+}
+
+header .lista-projetos.active a {
+   color:black;
+   opacity:.7;
+}
+
+header .lista-projetos.active a:hover {
+   opacity:1;
+}
+
+@keyframes coding {
+   0% {
+      opacity:0;
+   }
+
+   50% {
+      opacity:1;
+   }
+
+   100% {
+      opacity:0;
+   }
+}
