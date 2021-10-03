@@ -34,7 +34,7 @@ body {
    left:0;
    object-fit:cover;
    position:fixed;
-   filter:blur(15px);
+   filter:blur(6px);
 }
 
 section, header, nav, .lista-projetos.active {
