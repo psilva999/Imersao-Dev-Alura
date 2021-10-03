@@ -16,16 +16,44 @@ body {
    height:100vh;
    background:black;
    overflow-x:hidden;
+   scrollbar-width:thin;
+   scrollbar-color:#F2F2F2;
 }
 
-/* .comfort-eyes {
-   position:absolute;
+body::-webkit-scrollbar {
+   width:9px;
+}
+
+body::-webkit-scrollbar-track {
+   background:black;
+   border-radius:5px;
+}
+
+body::-webkit-scrollbar-thumb {
+   background-color:#F2F2F2;
+   border-radius:5px;
+   border:3px solid #F2F2F2;
+}
+
+.comfort-eyes, .comfort-eyes-header {
+   display:none;
    width:100vw;
    top:0;
    left:0;
    background:#FFD41C;
    opacity:.5;
-} */
+}
+
+.comfort-eyes {
+   position:fixed;
+   width:100vw;
+   height:100vh;
+}
+
+.comfort-eyes-header {
+   position:absolute;
+   height:50px;
+}
 
 #background-image {
    width:100vw;
@@ -71,6 +99,64 @@ header {
    letter-spacing:3px;
    top:0;
    height:50px;
+}
+
+header #container-switch-shadow {
+   position:absolute;
+   right:100px;
+   width:35px;
+   height:17px;
+}
+
+header .switch-shadow {
+   visibility:hidden;
+   user-select:none;
+}
+
+header .switch-shadow + label {
+   border-radius:50px;
+   user-select:none;
+   outline:none;
+   padding:3px;
+   width:45px;
+   height:20px;
+   opacity:.8;
+   cursor:pointer;
+}
+
+header .switch-shadow + label:before, .switch-shadow + label:after {
+   position:absolute;
+   display:block;
+   top:1px;
+   left:1px;
+   content:'';
+   bottom:1px;
+}
+
+header .switch-shadow + label:before {
+   background:#FFD41C;
+   box-shadow:2px 2px 3px rgba(0,0,0,.8);
+   border-radius:50px;
+   transition:all .5s;
+   right:1px;
+}
+
+header .switch-shadow + label:after {
+   box-shadow:0 3px 7px rgba(0,0,0,.5);
+   background:#F2F2F2;
+   border-radius:100%;
+   width:15px;
+   height:15px;
+   transition:all .6s;
+}
+
+header .switch-shadow:checked + label:before {
+   background:#F2F2F2;
+}
+
+header .switch-shadow:checked + label:after {
+   background:#FFD41C;
+   transform:translateX(20px);
 }
 
 header h1, #conteudo .conquistas {
@@ -258,6 +344,7 @@ header .lista-projetos.active a:hover {
 
 #conteudo .projetos::-webkit-scrollbar-track {
    background:black;
+   border-radius:5px;
 }
 
 #conteudo .projetos::-webkit-scrollbar-thumb {
@@ -272,7 +359,7 @@ header .lista-projetos.active a:hover {
 }
 
 #conteudo .projetos div h1 {
-   font-family: 'Fira Sans', sans-serif;
+   font-family:'Fira Sans', sans-serif;
    padding:5px;
    font-size:20px;
    letter-spacing:3px;
