@@ -150,16 +150,16 @@ section .titulo {
 
 section #titulo-clarice {
    width:270px;
-   background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Clarice_Lispector_%28cropped%29.jpg/200px-Clarice_Lispector_%28cropped%29.jpg') center;
+   background:url('https://i.ibb.co/xFqmM2K/clarice-min.jpg') center;
 }
 
 section #titulo-assis {
-   background:url('https://s2.glbimg.com/Ao8f0TRZZLLZt_6r_bCG7WtpUDI=/512x320/smart/e.glbimg.com/og/ed/f/original/2017/06/21/o-olhar-de-machado-de-assis.jpg') center;
+   background:url('https://i.ibb.co/YLbqf7V/assis-min.jpg') center;
    color:#473838;
 }
 
 section #titulo-ariano {
-   background:url('https://www.facetubes.com.br/images/noticias/620/fc7fea1700513a9c0e366cf649d3251a.jpg') center;
+   background:url('https://i.ibb.co/xHxdF6V/ariano-min.jpg') center;
 }
 
 section article {
@@ -219,9 +219,10 @@ article figcaption {
    position:fixed;
    bottom:0;
    font-size:23px;
-   padding:10px;
+   padding:10px 10px 5px 10px;
    border-radius:2rem 2rem 0rem 0rem;
    color:#F2F2F2;
+   background:black;
 }
 
 .imersao, .dev, .code {
