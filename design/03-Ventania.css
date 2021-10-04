@@ -80,6 +80,14 @@ header h1 {
    font-family:'Kalam', cursive;
 }
 
+header #fontes-imagens-site {
+   width:25px;
+   height:25px;
+   position:absolute;
+   right:120px;
+   cursor:pointer;
+}
+
 header nav {
    right:19px;
    width:30px;
