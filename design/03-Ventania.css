@@ -197,13 +197,13 @@ section article img {
    width:200px;
    height:350px;
    border-radius:3rem 1rem 5rem 1rem;
-   transition:.5s;
+   transition:.3s;
 }
 
 article img:hover {
    border-radius:0rem 0rem 6rem 6rem;
    transform:scale(1.1);
-   transition:.7s;
+   transition:.4s;
 }
 
 article figcaption {
