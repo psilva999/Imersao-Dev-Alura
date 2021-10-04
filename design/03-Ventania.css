@@ -18,6 +18,25 @@ body {
    background-color:#f5d020;
    background:rgba(0,0,0,1);
    overflow-x:hidden;
+   scrollbar-width:thin;
+   scrollbar-color:black;
+}
+
+body::-webkit-scrollbar {
+   width:9px;
+}
+
+body::-webkit-scrollbar-track, body::-webkit-scrollbar-thumb {
+   border-radius:5px 2px 2px 5px;
+}
+
+body::-webkit-scrollbar-track {
+   background:black;
+}
+
+body::-webkit-scrollbar-thumb {
+   background:#F2F2F2;
+   border:3px solid #F2F2F2;
 }
 
 #background-image {
@@ -48,6 +67,7 @@ header {
    color:#F2F2F2;
    box-shadow:0px 0px 3px solid rgba(0,0,0,.8);
    left:0px;
+   top:0px;
 }
 
 header h1, .autores.active li {
@@ -60,10 +80,96 @@ header h1 {
    font-family:'Kalam', cursive;
 }
 
-#menu {
+header nav {
+   right:19px;
+   width:30px;
+   height:30px;
+   border-radius:10px;
+   box-sizing:border-box;
+   display:flex;
+}
+
+.fecha-menu-por-fora {
+   position:fixed;
+   width:100vw;
+   height:100vh;
+   display:none;
+   left:0;
+   top:0;
+   background:rgba(0,0,0,.6);
+}
+
+header #menu {
+   width:40px;
+   height:40px;
+   border-radius:10px;
    position:absolute;
+}
+
+#menu #menu-burguer, #fecha-menu-por-x {
+   border:none;
+   background:none;
+   cursor:pointer;
+   opacity:.9;
+}
+
+#menu #menu-burguer #burguer {
+   border-top:3px solid;
+   color:#F2F2F2;
+   width:30px;
+   display:block;
+   position:relative;
+   left:5px;
    top:0px;
-   right:0px;
+   border-radius:2px;
+}
+
+#menu #burguer::after, #burguer::before {
+   position:relative;
+   border-radius:2px;
+   content:'';
+   height:3px;
+   margin-top:9px;
+   background:currentColor;
+   display:block;
+}
+
+.autores.active #fecha-menu-por-x {
+   opacity:.7;
+   position:absolute;
+   width:30px;
+   height:30px;
+   border-radius:5px;
+   display:flex;
+   cursor:pointer;
+   margin-left:0px;
+   margin-top:9px;
+}
+
+.autores.active #fecha-menu-por-x:hover {
+   opacity:1;
+}
+
+.autores.active #fecha-menu-por-x #burguer {
+   border-top-color:transparent;
+}
+
+.autores.active #fecha-menu-por-x #burguer::before {
+   transform:rotate(131deg);
+   background:black;
+   width:23px;
+   height:2px;
+   top:5.5px;
+   left:4px;
+}
+
+.autores.active #fecha-menu-por-x #burguer::after {
+   transform:rotate(-131deg);
+   background:black;
+   width:23px;
+   height:2px;
+   top:-5px;
+   left:4px;
 }
 
 .autores {
@@ -72,25 +178,30 @@ header h1 {
 
 .autores.active {
    position:absolute;
-   top:0px;
-   right:.5px;
+   top:-15px;
+   right:-9px;
    list-style:none;
    text-decoration:none;
    display:block;
+   border-radius:0px 0px 0px 1rem;
    overflow-y:auto;
    padding:10px;
-   height:100vh;
-   width:23vw;
-   background-color:#f5d020;
-   background-image:linear-gradient(315deg, #f5d020 0%, #f53803 84%);
+   height:380px;
+   width:25vw;
+   color:black;
+   background-color:#F2F2F2;
 }
 
 .autores.active li {
    display:block;
-   margin-top:85px;
+   margin-top:65px;
    font-size:18px;
    letter-spacing:2px;
    cursor:pointer;
+}
+
+.autores.active .clarice {
+   margin-top:80px;
 }
 
 .autores.active .github {
@@ -98,7 +209,7 @@ header h1 {
    margin:auto;
    width:25px;
    height:25px;
-   margin-top:30px;
+   margin-top:50px;
    border-radius:10px;
    opacity:.7;
 }
@@ -111,20 +222,7 @@ header h1 {
    opacity:1;
 }
 
-.cobre-tela {
-   display:none;
-}
-
-.cobre-tela.active {
-   display:block;
-   width:100vw;
-   height:100vh;
-   position:absolute;
-   background:rgba(0,0,0,.5);
-}
-
 section #container-clarice, #container-assis, #container-ariano {
-   position:absolute;
    width:100vw;
    height:45px;
    display:flex;
@@ -132,11 +230,11 @@ section #container-clarice, #container-assis, #container-ariano {
 }
 
 section #container-clarice {
-   margin-top:100px;
+   margin-top:130px;
 }
 
 section #container-assis, #container-ariano{
-   margin-top:30px;
+   margin-top:60px;
 }
 
 section .titulo {
@@ -168,11 +266,11 @@ section article {
    display:flex;
    width:100vw;
    height:430px;
-   margin-top:150px;
+   margin-top:20px;
 }
 
 section .assis-livros, .ariano-livros {
-   margin-top:80px;
+   margin-top:20px;
 }
 
 section .ariano-livros {
@@ -201,15 +299,14 @@ section article img {
 }
 
 article img:hover {
-   border-radius:0rem 0rem 6rem 6rem;
+   border-radius:0rem 0rem 6rem 1rem;
    transform:scale(1.1);
-   transition:.4s;
+   transition:.5s;
 }
 
 article figcaption {
    font-size:15px;
-   position:relative;
-   top:15px;
+   margin-top:15px;
 }
 
 #imersao-dev {
@@ -219,7 +316,7 @@ article figcaption {
    position:fixed;
    bottom:0;
    font-size:23px;
-   padding:10px 10px 5px 10px;
+   padding:10px 15px 5px 15px;
    border-radius:2rem 2rem 0rem 0rem;
    color:#F2F2F2;
    background:black;
@@ -276,44 +373,24 @@ article figcaption {
       filter:blur(0px);
    }
 
-   10% {
+   20% {
       filter:blur(1px);
    }
 
-   20% {
+   40% {
       filter:blur(2px);
    }
 
-   30% {
+   60% {
       filter:blur(3px);
    }
 
-   40% {
+   80% {
       filter:blur(4px);
    }
 
-   50% {
-      filter:blur(5px);
-   }
-
-   60% {
-      filter:blur(6px);
-   }
-
-   70% {
-      filter:blur(7px);
-   }
-
-   80% {
-      filter:blur(8px);
-   }
-
-   90% {
-      filter:blur(9px);
-   }
-
    100% {
-      filter:blur(10px);
+      filter:blur(5px);
    }
 }
 
