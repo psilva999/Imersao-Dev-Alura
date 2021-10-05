@@ -23,6 +23,10 @@ var seta = {
    desativada: document.querySelector("#seta-esquerda-desativada")
 }
 
+seta.direita.addEventListener("click", () => {
+   
+})
+
 menu.abrir.addEventListener("click", () => {
    retiraSetas()
 
