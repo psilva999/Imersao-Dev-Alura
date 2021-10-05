@@ -16,16 +16,51 @@ var fonte = {
    fechaPorFora: document.querySelector('#container-fonte-imagens')
 } 
 
+var seta = {
+   esquerda: document.querySelector("#seta-esquerda"),
+   direita:document.querySelector("#seta-direita"),
+
+   desativada: document.querySelector("#seta-esquerda-desativada")
+}
+
 menu.abrir.addEventListener("click", () => {
+   retiraSetas()
+
    container.autores.classList.add('active')
    menu.fecharPorFora.style.display = 'block'
 })
-menu.fechar.addEventListener("click", fechaMenu)
-menu.fecharPorFora.addEventListener('click', fechaMenu)
+
+menu.fechar.addEventListener("click", () => {
+   fechaMenu() 
+   colocaSetas()
+})
+
+menu.fecharPorFora.addEventListener('click', () => {
+   fechaMenu() 
+   colocaSetas()
+})
 
 function fechaMenu() {
    container.autores.classList.toggle("active")
    menu.fecharPorFora.style.display = 'none'
+}
+
+function retiraSetas() {
+   seta.direita.style.display = 'none'
+   seta.desativada.style.display = 'none'
+
+   if (seta.esquerda.classList.contains("active")) {
+      seta.esquerda.style.display = 'none'
+   }
+}
+
+function colocaSetas() {
+   seta.direita.style.display = 'flex'
+   seta.desativada.style.display = 'flex'
+
+   if (seta.esquerda.classList.contains("active")) {
+      seta.esquerda.style.display = 'flex'
+   }
 }
 
 fonte.abre.addEventListener("click", () => {

@@ -280,6 +280,51 @@ section article {
    margin-top:20px;
 }
 
+section article #seta-esquerda, #seta-esquerda-desativada, #seta-direita {
+   font-family:'Kalam', cursive;
+   background:black;
+   font-size:55px;
+   position:absolute;
+   color:#F2F2F2;
+   height:350px;
+   justify-content:center;
+   align-items:center;
+   border-radius:3rem 0rem 0rem 3rem;
+   opacity:.8;
+}
+
+section article #seta-esquerda, #seta-direita {
+   cursor:pointer;
+}
+
+section article #seta-esquerda:hover, #seta-direita:hover {
+   opacity:1;
+}
+
+section article #seta-esquerda, #seta-esquerda-desativada {
+   left:0;
+   padding-left:5px;
+   transform:rotate(-180deg);
+}
+
+section article #seta-esquerda {
+   display:none;
+}
+
+section article #seta-esquerda.active {
+   display:flex;
+}
+
+section article #seta-esquerda-desativada {
+   display:flex;
+}
+
+section article #seta-direita {
+   display:flex;
+   right:9px;
+   padding-left:5px;
+}
+
 section .assis-livros, .ariano-livros {
    margin-top:20px;
 }
@@ -298,8 +343,8 @@ section article figure {
    color:#F2F2F2;
 }
 
-.primeira-img {
-   margin-left:20px;
+section article .primeira-img {
+   margin-left:60px;
 }
 
 section article img {
@@ -398,7 +443,7 @@ article figcaption {
 
 .mantem-fontes-abertas a:hover {
    opacity:1;
-   text-decoration:none:
+   text-decoration:none;
 }
 
 #imersao-dev {
