@@ -4,19 +4,38 @@ var menu = {
    fecharPorFora: document.querySelector(".fecha-menu-por-fora")
 }
 
-var listaAutores = document.querySelector(".autores")
+var container = {
+   autores: document.querySelector(".autores"),
+   fonteImagens: document.querySelector(".mantem-fontes-abertas")
+}
+
+var fonte = {
+   abre: document.querySelector('#fontes-imagens-site'),
+
+   fecha: document.querySelector('.fecha-por-x-fontes'),
+   fechaPorFora: document.querySelector('#container-fonte-imagens')
+} 
 
 menu.abrir.addEventListener("click", () => {
-   listaAutores.classList.add('active')
+   container.autores.classList.add('active')
    menu.fecharPorFora.style.display = 'block'
 })
+menu.fechar.addEventListener("click", fechaMenu)
+menu.fecharPorFora.addEventListener('click', fechaMenu)
 
-menu.fechar.addEventListener("click", () => {
-   listaAutores.classList.remove("active")
+function fechaMenu() {
+   container.autores.classList.toggle("active")
    menu.fecharPorFora.style.display = 'none'
-})
+}
 
-menu.fecharPorFora.addEventListener('click', () => {
-   listaAutores.classList.toggle("active")
-   menu.fecharPorFora.style.display = 'none'
+fonte.abre.addEventListener("click", () => {
+   fonte.fechaPorFora.style.display = 'block'
+   container.fonteImagens.style.display = 'block'
 })
+fonte.fecha.addEventListener("click", fechaFontes)
+fonte.fechaPorFora.addEventListener("click", fechaFontes)
+
+function fechaFontes() {
+   fonte.fechaPorFora.style.display = 'none'
+   container.fonteImagens.style.display = 'none'
+}
